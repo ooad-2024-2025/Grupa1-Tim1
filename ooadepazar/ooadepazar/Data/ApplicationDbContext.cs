@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using ooadepazar.Models;
 
@@ -15,4 +15,6 @@ public class ApplicationDbContext : IdentityDbContext
         
         base.OnModelCreating(modelBuilder);
     }
+
+public DbSet<ooadepazar.Models.Korisnik> Korisnik { get; set; } = default!;
 } 
