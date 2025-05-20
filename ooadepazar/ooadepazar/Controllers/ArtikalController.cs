@@ -58,7 +58,7 @@ namespace ooadepazar.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Naziv,Stanje,Opis,Cijena,Lokacija,DatumObjave,KorisnikId")] Artikal artikal)
+        public async Task<IActionResult> Create([Bind("ID,Naziv,Stanje,Opis,Cijena,Lokacija,DatumObjave,KorisnikId,Korisnik")] Artikal artikal)
         {
             artikal.DatumObjave = DateTime.Now;
             if (ModelState.IsValid)
