@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hAPF7sW/xv0=",
+  "dgSpecHash": "VY7FAOScQTY=",
   "success": true,
-  "projectFilePath": "/Users/bakir/fax/ooadp2/ooadepazar/ooadepazar/ooadepazar.csproj",
+  "projectFilePath": "/Users/bakir/Desktop/fax/ooad/ooadepazar/ooadepazar/ooadepazar.csproj",
   "expectedPackageFiles": [
     "/Users/bakir/.nuget/packages/azure.core/1.38.0/azure.core.1.38.0.nupkg.sha512",
     "/Users/bakir/.nuget/packages/azure.identity/1.11.4/azure.identity.1.11.4.nupkg.sha512",

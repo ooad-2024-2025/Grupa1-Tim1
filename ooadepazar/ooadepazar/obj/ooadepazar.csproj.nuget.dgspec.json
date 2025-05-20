@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/bakir/fax/ooadp2/ooadepazar/ooadepazar/ooadepazar.csproj": {}
+    "/Users/bakir/Desktop/fax/ooad/ooadepazar/ooadepazar/ooadepazar.csproj": {}
   },
   "projects": {
-    "/Users/bakir/fax/ooadp2/ooadepazar/ooadepazar/ooadepazar.csproj": {
+    "/Users/bakir/Desktop/fax/ooad/ooadepazar/ooadepazar/ooadepazar.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/bakir/fax/ooadp2/ooadepazar/ooadepazar/ooadepazar.csproj",
+        "projectUniqueName": "/Users/bakir/Desktop/fax/ooad/ooadepazar/ooadepazar/ooadepazar.csproj",
         "projectName": "ooadepazar",
-        "projectPath": "/Users/bakir/fax/ooadp2/ooadepazar/ooadepazar/ooadepazar.csproj",
+        "projectPath": "/Users/bakir/Desktop/fax/ooad/ooadepazar/ooadepazar/ooadepazar.csproj",
         "packagesPath": "/Users/bakir/.nuget/packages/",
-        "outputPath": "/Users/bakir/fax/ooadp2/ooadepazar/ooadepazar/obj/",
+        "outputPath": "/Users/bakir/Desktop/fax/ooad/ooadepazar/ooadepazar/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/bakir/.nuget/NuGet/NuGet.Config"
