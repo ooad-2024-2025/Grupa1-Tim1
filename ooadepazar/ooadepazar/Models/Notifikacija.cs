@@ -9,12 +9,9 @@ public class Notifikacija
     public int ID { get; set; }
     
     public string Sadrzaj { get; set; }
-    public Stanje St { get; set; }
-    public string Opis { get; set; }
-    public float Cijena { get; set; }
-    public bool Lokacija { get; set; }
     public DateTime DatumObjave { get; set; }
-    
+    public bool Procitana { get; set; } = false;
+
     [ForeignKey("Korisnik")]
     public int KorisnikId { get; set; }
 }

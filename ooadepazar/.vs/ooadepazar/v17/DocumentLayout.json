@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\KORISNIK\\Grupa1-Tim1\\ooadepazar\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\korisnik\\grupa1-tim1\\ooadepazar\\ooadepazar\\models\\korisnik.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\models\\korisnik.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\korisnik\\grupa1-tim1\\ooadepazar\\ooadepazar\\controllers\\narudzbacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\controllers\\narudzbacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\korisnik\\grupa1-tim1\\ooadepazar\\ooadepazar\\controllers\\artikalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\controllers\\artikalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,16 +19,40 @@
       "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\models\\artikal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\korisnik\\grupa1-tim1\\ooadepazar\\ooadepazar\\views\\artikal\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\views\\artikal\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\korisnik\\grupa1-tim1\\ooadepazar\\ooadepazar\\models\\narudzba.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\models\\narudzba.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\korisnik\\grupa1-tim1\\ooadepazar\\ooadepazar\\controllers\\pracenjecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\controllers\\pracenjecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\korisnik\\grupa1-tim1\\ooadepazar\\ooadepazar\\controllers\\notifikacijacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\controllers\\notifikacijacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\korisnik\\grupa1-tim1\\ooadepazar\\ooadepazar\\models\\pracenje.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\models\\pracenje.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\korisnik\\grupa1-tim1\\ooadepazar\\ooadepazar\\models\\notifikacija.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\models\\notifikacija.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\korisnik\\grupa1-tim1\\ooadepazar\\ooadepazar\\models\\status.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\models\\status.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\korisnik\\grupa1-tim1\\ooadepazar\\ooadepazar\\models\\uloga.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\models\\uloga.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\korisnik\\grupa1-tim1\\ooadepazar\\ooadepazar\\controllers\\korisnikcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\controllers\\korisnikcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\korisnik\\grupa1-tim1\\ooadepazar\\ooadepazar\\models\\korisnik.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\models\\korisnik.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\korisnik\\grupa1-tim1\\ooadepazar\\ooadepazar\\views\\artikal\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\views\\artikal\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,7 +70,140 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PracenjeController.cs",
+              "DocumentMoniker": "C:\\Users\\KORISNIK\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Controllers\\PracenjeController.cs",
+              "RelativeDocumentMoniker": "ooadepazar\\Controllers\\PracenjeController.cs",
+              "ToolTip": "C:\\Users\\KORISNIK\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Controllers\\PracenjeController.cs",
+              "RelativeToolTip": "ooadepazar\\Controllers\\PracenjeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-25T21:35:31.379Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "NotifikacijaController.cs",
+              "DocumentMoniker": "C:\\Users\\KORISNIK\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Controllers\\NotifikacijaController.cs",
+              "RelativeDocumentMoniker": "ooadepazar\\Controllers\\NotifikacijaController.cs",
+              "ToolTip": "C:\\Users\\KORISNIK\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Controllers\\NotifikacijaController.cs",
+              "RelativeToolTip": "ooadepazar\\Controllers\\NotifikacijaController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-25T21:34:38.212Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Pracenje.cs",
+              "DocumentMoniker": "C:\\Users\\KORISNIK\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\Pracenje.cs",
+              "RelativeDocumentMoniker": "ooadepazar\\Models\\Pracenje.cs",
+              "ToolTip": "C:\\Users\\KORISNIK\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\Pracenje.cs",
+              "RelativeToolTip": "ooadepazar\\Models\\Pracenje.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-25T21:30:46.803Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Notifikacija.cs",
+              "DocumentMoniker": "C:\\Users\\KORISNIK\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\Notifikacija.cs",
+              "RelativeDocumentMoniker": "ooadepazar\\Models\\Notifikacija.cs",
+              "ToolTip": "C:\\Users\\KORISNIK\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\Notifikacija.cs",
+              "RelativeToolTip": "ooadepazar\\Models\\Notifikacija.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-25T21:29:16.965Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Status.cs",
+              "DocumentMoniker": "C:\\Users\\KORISNIK\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\Status.cs",
+              "RelativeDocumentMoniker": "ooadepazar\\Models\\Status.cs",
+              "ToolTip": "C:\\Users\\KORISNIK\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\Status.cs",
+              "RelativeToolTip": "ooadepazar\\Models\\Status.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-25T21:13:19.293Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Narudzba.cs",
+              "DocumentMoniker": "C:\\Users\\KORISNIK\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\Narudzba.cs",
+              "RelativeDocumentMoniker": "ooadepazar\\Models\\Narudzba.cs",
+              "ToolTip": "C:\\Users\\KORISNIK\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\Narudzba.cs",
+              "RelativeToolTip": "ooadepazar\\Models\\Narudzba.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-25T21:08:15.463Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Artikal.cs",
+              "DocumentMoniker": "C:\\Users\\KORISNIK\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\Artikal.cs",
+              "RelativeDocumentMoniker": "ooadepazar\\Models\\Artikal.cs",
+              "ToolTip": "C:\\Users\\KORISNIK\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\Artikal.cs",
+              "RelativeToolTip": "ooadepazar\\Models\\Artikal.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T07:40:25.925Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Korisnik.cs",
+              "DocumentMoniker": "C:\\Users\\KORISNIK\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\Korisnik.cs",
+              "RelativeDocumentMoniker": "ooadepazar\\Models\\Korisnik.cs",
+              "ToolTip": "C:\\Users\\KORISNIK\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\Korisnik.cs",
+              "RelativeToolTip": "ooadepazar\\Models\\Korisnik.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T07:43:36.307Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "ArtikalController.cs",
+              "DocumentMoniker": "C:\\Users\\KORISNIK\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Controllers\\ArtikalController.cs",
+              "RelativeDocumentMoniker": "ooadepazar\\Controllers\\ArtikalController.cs",
+              "ToolTip": "C:\\Users\\KORISNIK\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Controllers\\ArtikalController.cs",
+              "RelativeToolTip": "ooadepazar\\Controllers\\ArtikalController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABkAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T07:45:52.893Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NarudzbaController.cs",
+              "DocumentMoniker": "C:\\Users\\KORISNIK\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Controllers\\NarudzbaController.cs",
+              "RelativeDocumentMoniker": "ooadepazar\\Controllers\\NarudzbaController.cs",
+              "ToolTip": "C:\\Users\\KORISNIK\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Controllers\\NarudzbaController.cs",
+              "RelativeToolTip": "ooadepazar\\Controllers\\NarudzbaController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-25T21:20:43.251Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Uloga.cs",
+              "DocumentMoniker": "C:\\Users\\KORISNIK\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\Uloga.cs",
+              "RelativeDocumentMoniker": "ooadepazar\\Models\\Uloga.cs",
+              "ToolTip": "C:\\Users\\KORISNIK\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\Uloga.cs",
+              "RelativeToolTip": "ooadepazar\\Models\\Uloga.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-25T21:23:45.64Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\KORISNIK\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Views\\Artikal\\Create.cshtml",
               "RelativeDocumentMoniker": "ooadepazar\\Views\\Artikal\\Create.cshtml",
@@ -46,12 +211,11 @@
               "RelativeToolTip": "ooadepazar\\Views\\Artikal\\Create.cshtml",
               "ViewState": "AgIAABsAAAAAAAAAAAAAABYAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-20T07:49:02.528Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-20T07:49:02.528Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 11,
               "Title": "KorisnikController.cs",
               "DocumentMoniker": "C:\\Users\\KORISNIK\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Controllers\\KorisnikController.cs",
               "RelativeDocumentMoniker": "ooadepazar\\Controllers\\KorisnikController.cs",
@@ -59,47 +223,7 @@
               "RelativeToolTip": "ooadepazar\\Controllers\\KorisnikController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T07:56:14.007Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ArtikalController.cs",
-              "DocumentMoniker": "C:\\Users\\KORISNIK\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Controllers\\ArtikalController.cs",
-              "RelativeDocumentMoniker": "ooadepazar\\Controllers\\ArtikalController.cs",
-              "ToolTip": "C:\\Users\\KORISNIK\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Controllers\\ArtikalController.cs",
-              "RelativeToolTip": "ooadepazar\\Controllers\\ArtikalController.cs",
-              "ViewState": "AgIAADcAAAAAAAAAAAAuwEUAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T07:45:52.893Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Korisnik.cs",
-              "DocumentMoniker": "C:\\Users\\KORISNIK\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\Korisnik.cs",
-              "RelativeDocumentMoniker": "ooadepazar\\Models\\Korisnik.cs",
-              "ToolTip": "C:\\Users\\KORISNIK\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\Korisnik.cs",
-              "RelativeToolTip": "ooadepazar\\Models\\Korisnik.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T07:43:36.307Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Artikal.cs",
-              "DocumentMoniker": "C:\\Users\\KORISNIK\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\Artikal.cs",
-              "RelativeDocumentMoniker": "ooadepazar\\Models\\Artikal.cs",
-              "ToolTip": "C:\\Users\\KORISNIK\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\Artikal.cs",
-              "RelativeToolTip": "ooadepazar\\Models\\Artikal.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAQwA4AAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T07:40:25.925Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-20T07:56:14.007Z"
             }
           ]
         }

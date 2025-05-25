@@ -17,4 +17,10 @@ public class ApplicationDbContext : IdentityDbContext
     }
 
 public DbSet<ooadepazar.Models.Korisnik> Korisnik { get; set; } = default!;
+
+public DbSet<ooadepazar.Models.Narudzba> Narudzba { get; set; } = default!;
+
+public DbSet<ooadepazar.Models.Notifikacija> Notifikacija { get; set; } = default!;
+
+public DbSet<ooadepazar.Models.Pracenje> Pracenje { get; set; } = default!;
 } 

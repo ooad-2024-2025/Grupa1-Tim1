@@ -8090,24 +8090,31 @@
     ]
   },
   "packageFolders": {
-    "/Users/bakir/.nuget/packages/": {}
+    "C:\\Users\\KORISNIK\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/bakir/Desktop/fax/ooad/ooadepazar/ooadepazar/ooadepazar.csproj",
+      "projectUniqueName": "C:\\Users\\KORISNIK\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\ooadepazar.csproj",
       "projectName": "ooadepazar",
-      "projectPath": "/Users/bakir/Desktop/fax/ooad/ooadepazar/ooadepazar/ooadepazar.csproj",
-      "packagesPath": "/Users/bakir/.nuget/packages/",
-      "outputPath": "/Users/bakir/Desktop/fax/ooad/ooadepazar/ooadepazar/obj/",
+      "projectPath": "C:\\Users\\KORISNIK\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\ooadepazar.csproj",
+      "packagesPath": "C:\\Users\\KORISNIK\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\KORISNIK\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/Users/bakir/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\KORISNIK\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -8180,7 +8187,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
