@@ -12,8 +12,8 @@ using ooadepazar.Data;
 namespace ooadepazar.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250526140727_jaoooooooo")]
-    partial class jaoooooooo
+    [Migration("20250526195320_hajjealelfelaaaaaaaaa")]
+    partial class hajjealelfelaaaaaaaaa
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -352,7 +352,23 @@ namespace ooadepazar.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
+                    b.Property<int?>("PraceniID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PraceniKorisnikID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PratilacID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PratilacKorisnikID")
+                        .HasColumnType("int");
+
                     b.HasKey("ID");
+
+                    b.HasIndex("PraceniKorisnikID");
+
+                    b.HasIndex("PratilacKorisnikID");
 
                     b.ToTable("Pracenje", (string)null);
                 });
@@ -413,7 +429,7 @@ namespace ooadepazar.Migrations
                     b.HasOne("ooadepazar.Models.Korisnik", "Korisnik")
                         .WithMany()
                         .HasForeignKey("KorisnikId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Korisnik");
@@ -448,10 +464,25 @@ namespace ooadepazar.Migrations
                     b.HasOne("ooadepazar.Models.Korisnik", "Korisnik")
                         .WithMany()
                         .HasForeignKey("KorisnikId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Korisnik");
+                });
+
+            modelBuilder.Entity("ooadepazar.Models.Pracenje", b =>
+                {
+                    b.HasOne("ooadepazar.Models.Korisnik", "PraceniKorisnik")
+                        .WithMany()
+                        .HasForeignKey("PraceniKorisnikID");
+
+                    b.HasOne("ooadepazar.Models.Korisnik", "PratilacKorisnik")
+                        .WithMany()
+                        .HasForeignKey("PratilacKorisnikID");
+
+                    b.Navigation("PraceniKorisnik");
+
+                    b.Navigation("PratilacKorisnik");
                 });
 #pragma warning restore 612, 618
         }

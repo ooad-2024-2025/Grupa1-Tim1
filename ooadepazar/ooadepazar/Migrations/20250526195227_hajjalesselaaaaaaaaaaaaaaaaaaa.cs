@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ooadepazar.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class hajjalesselaaaaaaaaaaaaaaaaaaa : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -60,6 +60,18 @@ namespace ooadepazar.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Korisnik", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Pracenje",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Pracenje", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -216,32 +228,6 @@ namespace ooadepazar.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Pracenje",
-                columns: table => new
-                {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    PraceniID = table.Column<int>(type: "int", nullable: true),
-                    PraceniKorisnikID = table.Column<int>(type: "int", nullable: true),
-                    PratilacID = table.Column<int>(type: "int", nullable: true),
-                    PratilacKorisnikID = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Pracenje", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_Pracenje_Korisnik_PraceniKorisnikID",
-                        column: x => x.PraceniKorisnikID,
-                        principalTable: "Korisnik",
-                        principalColumn: "ID");
-                    table.ForeignKey(
-                        name: "FK_Pracenje_Korisnik_PratilacKorisnikID",
-                        column: x => x.PratilacKorisnikID,
-                        principalTable: "Korisnik",
-                        principalColumn: "ID");
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Narudzba",
                 columns: table => new
                 {
@@ -250,8 +236,8 @@ namespace ooadepazar.Migrations
                     DatumNarudzbe = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DatumObrade = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Status = table.Column<int>(type: "int", nullable: false),
-                    KorisnikID = table.Column<int>(type: "int", nullable: false),
-                    ArtikalID = table.Column<int>(type: "int", nullable: false),
+                    KorisnikID = table.Column<int>(type: "int", nullable: true),
+                    ArtikalID = table.Column<int>(type: "int", nullable: true),
                     KurirskaSluzbaID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -262,18 +248,19 @@ namespace ooadepazar.Migrations
                         column: x => x.ArtikalID,
                         principalTable: "Artikal",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Narudzba_Korisnik_KorisnikID",
                         column: x => x.KorisnikID,
                         principalTable: "Korisnik",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Narudzba_Korisnik_KurirskaSluzbaID",
                         column: x => x.KurirskaSluzbaID,
                         principalTable: "Korisnik",
-                        principalColumn: "ID");
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -339,16 +326,6 @@ namespace ooadepazar.Migrations
                 name: "IX_Notifikacija_KorisnikId",
                 table: "Notifikacija",
                 column: "KorisnikId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Pracenje_PraceniKorisnikID",
-                table: "Pracenje",
-                column: "PraceniKorisnikID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Pracenje_PratilacKorisnikID",
-                table: "Pracenje",
-                column: "PratilacKorisnikID");
         }
 
         /// <inheritdoc />

@@ -12,8 +12,8 @@ using ooadepazar.Data;
 namespace ooadepazar.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250526140455_daaaaaaaaaaaaaaa")]
-    partial class daaaaaaaaaaaaaaa
+    [Migration("20250526195227_hajjalesselaaaaaaaaaaaaaaaaaaa")]
+    partial class hajjalesselaaaaaaaaaaaaaaaaaaa
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -287,7 +287,7 @@ namespace ooadepazar.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
-                    b.Property<int>("ArtikalID")
+                    b.Property<int?>("ArtikalID")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DatumNarudzbe")
@@ -296,7 +296,7 @@ namespace ooadepazar.Migrations
                     b.Property<DateTime>("DatumObrade")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("KorisnikID")
+                    b.Property<int?>("KorisnikID")
                         .HasColumnType("int");
 
                     b.Property<int?>("KurirskaSluzbaID")
@@ -352,23 +352,7 @@ namespace ooadepazar.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
-                    b.Property<int?>("PraceniID")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("PraceniKorisnikID")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("PratilacID")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("PratilacKorisnikID")
-                        .HasColumnType("int");
-
                     b.HasKey("ID");
-
-                    b.HasIndex("PraceniKorisnikID");
-
-                    b.HasIndex("PratilacKorisnikID");
 
                     b.ToTable("Pracenje", (string)null);
                 });
@@ -429,7 +413,7 @@ namespace ooadepazar.Migrations
                     b.HasOne("ooadepazar.Models.Korisnik", "Korisnik")
                         .WithMany()
                         .HasForeignKey("KorisnikId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Korisnik");
@@ -440,14 +424,12 @@ namespace ooadepazar.Migrations
                     b.HasOne("ooadepazar.Models.Artikal", "Artikal")
                         .WithMany()
                         .HasForeignKey("ArtikalID")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("ooadepazar.Models.Korisnik", "Korisnik")
                         .WithMany()
                         .HasForeignKey("KorisnikID")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("ooadepazar.Models.Korisnik", "KurirskaSluzba")
                         .WithMany()
@@ -466,27 +448,10 @@ namespace ooadepazar.Migrations
                     b.HasOne("ooadepazar.Models.Korisnik", "Korisnik")
                         .WithMany()
                         .HasForeignKey("KorisnikId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Korisnik");
-                });
-
-            modelBuilder.Entity("ooadepazar.Models.Pracenje", b =>
-                {
-                    b.HasOne("ooadepazar.Models.Korisnik", "PraceniKorisnik")
-                        .WithMany()
-                        .HasForeignKey("PraceniKorisnikID")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("ooadepazar.Models.Korisnik", "PratilacKorisnik")
-                        .WithMany()
-                        .HasForeignKey("PratilacKorisnikID")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.Navigation("PraceniKorisnik");
-
-                    b.Navigation("PratilacKorisnik");
                 });
 #pragma warning restore 612, 618
         }
