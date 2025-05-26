@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ooadepazar.Data;
 
@@ -11,9 +12,11 @@ using ooadepazar.Data;
 namespace ooadepazar.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250526140206_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -284,7 +287,7 @@ namespace ooadepazar.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
-                    b.Property<int?>("ArtikalID")
+                    b.Property<int>("ArtikalID")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DatumNarudzbe")
@@ -293,7 +296,7 @@ namespace ooadepazar.Migrations
                     b.Property<DateTime>("DatumObrade")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("KorisnikID")
+                    b.Property<int>("KorisnikID")
                         .HasColumnType("int");
 
                     b.Property<int?>("KurirskaSluzbaID")
@@ -349,7 +352,23 @@ namespace ooadepazar.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
+                    b.Property<int?>("PraceniID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PraceniKorisnikID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PratilacID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PratilacKorisnikID")
+                        .HasColumnType("int");
+
                     b.HasKey("ID");
+
+                    b.HasIndex("PraceniKorisnikID");
+
+                    b.HasIndex("PratilacKorisnikID");
 
                     b.ToTable("Pracenje", (string)null);
                 });
@@ -410,7 +429,7 @@ namespace ooadepazar.Migrations
                     b.HasOne("ooadepazar.Models.Korisnik", "Korisnik")
                         .WithMany()
                         .HasForeignKey("KorisnikId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Korisnik");
@@ -421,17 +440,18 @@ namespace ooadepazar.Migrations
                     b.HasOne("ooadepazar.Models.Artikal", "Artikal")
                         .WithMany()
                         .HasForeignKey("ArtikalID")
-                        .OnDelete(DeleteBehavior.NoAction);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("ooadepazar.Models.Korisnik", "Korisnik")
                         .WithMany()
                         .HasForeignKey("KorisnikID")
-                        .OnDelete(DeleteBehavior.NoAction);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("ooadepazar.Models.Korisnik", "KurirskaSluzba")
                         .WithMany()
-                        .HasForeignKey("KurirskaSluzbaID")
-                        .OnDelete(DeleteBehavior.NoAction);
+                        .HasForeignKey("KurirskaSluzbaID");
 
                     b.Navigation("Artikal");
 
@@ -445,10 +465,25 @@ namespace ooadepazar.Migrations
                     b.HasOne("ooadepazar.Models.Korisnik", "Korisnik")
                         .WithMany()
                         .HasForeignKey("KorisnikId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Korisnik");
+                });
+
+            modelBuilder.Entity("ooadepazar.Models.Pracenje", b =>
+                {
+                    b.HasOne("ooadepazar.Models.Korisnik", "PraceniKorisnik")
+                        .WithMany()
+                        .HasForeignKey("PraceniKorisnikID");
+
+                    b.HasOne("ooadepazar.Models.Korisnik", "PratilacKorisnik")
+                        .WithMany()
+                        .HasForeignKey("PratilacKorisnikID");
+
+                    b.Navigation("PraceniKorisnik");
+
+                    b.Navigation("PratilacKorisnik");
                 });
 #pragma warning restore 612, 618
         }

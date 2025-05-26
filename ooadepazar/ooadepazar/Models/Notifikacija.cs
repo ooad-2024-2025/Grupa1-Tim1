@@ -12,6 +12,6 @@ public class Notifikacija
     public DateTime DatumObjave { get; set; }
     public bool Procitana { get; set; } = false;
 
-    [ForeignKey("Korisnik")]
     public int KorisnikId { get; set; }
+    public Korisnik? Korisnik { get; set; }
 }

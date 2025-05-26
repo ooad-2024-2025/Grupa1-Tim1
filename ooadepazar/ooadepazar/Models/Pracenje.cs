@@ -8,11 +8,9 @@ namespace ooadepazar.Models
         [Key]
         public int ID { get; set; }
 
-        [ForeignKey("PraceniID")]
-        public int PraceniID { get; set; }
-
-        [ForeignKey("PratilacID")]
-        public int PratilacID { get; set; }
-
+        // public int? PraceniID { get; set; }
+        // public Korisnik? PraceniKorisnik { get; set; }
+        // public int? PratilacID { get; set; }
+        // public Korisnik? PratilacKorisnik { get; set; }
     }
 }

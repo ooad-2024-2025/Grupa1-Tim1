@@ -12,8 +12,8 @@ using ooadepazar.Data;
 namespace ooadepazar.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250513104335_Initial")]
-    partial class Initial
+    [Migration("20250526140727_jaoooooooo")]
+    partial class jaoooooooo
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -241,6 +241,9 @@ namespace ooadepazar.Migrations
                     b.Property<DateTime>("DatumObjave")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("KorisnikId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Lokacija")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -253,12 +256,105 @@ namespace ooadepazar.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("St")
+                    b.Property<int>("Stanje")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
 
+                    b.HasIndex("KorisnikId");
+
                     b.ToTable("Artikal", (string)null);
+                });
+
+            modelBuilder.Entity("ooadepazar.Models.Korisnik", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Korisnik", (string)null);
+                });
+
+            modelBuilder.Entity("ooadepazar.Models.Narudzba", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<int?>("ArtikalID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DatumNarudzbe")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DatumObrade")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("KorisnikID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("KurirskaSluzbaID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("ArtikalID");
+
+                    b.HasIndex("KorisnikID");
+
+                    b.HasIndex("KurirskaSluzbaID");
+
+                    b.ToTable("Narudzba", (string)null);
+                });
+
+            modelBuilder.Entity("ooadepazar.Models.Notifikacija", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<DateTime>("DatumObjave")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("KorisnikId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Procitana")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Sadrzaj")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("KorisnikId");
+
+                    b.ToTable("Notifikacija", (string)null);
+                });
+
+            modelBuilder.Entity("ooadepazar.Models.Pracenje", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Pracenje", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -310,6 +406,52 @@ namespace ooadepazar.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("ooadepazar.Models.Artikal", b =>
+                {
+                    b.HasOne("ooadepazar.Models.Korisnik", "Korisnik")
+                        .WithMany()
+                        .HasForeignKey("KorisnikId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Korisnik");
+                });
+
+            modelBuilder.Entity("ooadepazar.Models.Narudzba", b =>
+                {
+                    b.HasOne("ooadepazar.Models.Artikal", "Artikal")
+                        .WithMany()
+                        .HasForeignKey("ArtikalID")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ooadepazar.Models.Korisnik", "Korisnik")
+                        .WithMany()
+                        .HasForeignKey("KorisnikID")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ooadepazar.Models.Korisnik", "KurirskaSluzba")
+                        .WithMany()
+                        .HasForeignKey("KurirskaSluzbaID")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("Artikal");
+
+                    b.Navigation("Korisnik");
+
+                    b.Navigation("KurirskaSluzba");
+                });
+
+            modelBuilder.Entity("ooadepazar.Models.Notifikacija", b =>
+                {
+                    b.HasOne("ooadepazar.Models.Korisnik", "Korisnik")
+                        .WithMany()
+                        .HasForeignKey("KorisnikId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Korisnik");
                 });
 #pragma warning restore 612, 618
         }

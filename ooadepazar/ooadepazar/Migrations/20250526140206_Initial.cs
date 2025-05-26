@@ -12,24 +12,6 @@ namespace ooadepazar.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Artikal",
-                columns: table => new
-                {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Naziv = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    St = table.Column<int>(type: "int", nullable: false),
-                    Opis = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Cijena = table.Column<float>(type: "real", nullable: false),
-                    Lokacija = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DatumObjave = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Artikal", x => x.ID);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
                 {
@@ -66,6 +48,18 @@ namespace ooadepazar.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Korisnik",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Korisnik", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -174,6 +168,119 @@ namespace ooadepazar.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Artikal",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Naziv = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Stanje = table.Column<int>(type: "int", nullable: false),
+                    Opis = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Cijena = table.Column<float>(type: "real", nullable: false),
+                    Lokacija = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DatumObjave = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    KorisnikId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Artikal", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Artikal_Korisnik_KorisnikId",
+                        column: x => x.KorisnikId,
+                        principalTable: "Korisnik",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Notifikacija",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Sadrzaj = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DatumObjave = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Procitana = table.Column<bool>(type: "bit", nullable: false),
+                    KorisnikId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Notifikacija", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Notifikacija_Korisnik_KorisnikId",
+                        column: x => x.KorisnikId,
+                        principalTable: "Korisnik",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Pracenje",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PraceniID = table.Column<int>(type: "int", nullable: true),
+                    PraceniKorisnikID = table.Column<int>(type: "int", nullable: true),
+                    PratilacID = table.Column<int>(type: "int", nullable: true),
+                    PratilacKorisnikID = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Pracenje", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Pracenje_Korisnik_PraceniKorisnikID",
+                        column: x => x.PraceniKorisnikID,
+                        principalTable: "Korisnik",
+                        principalColumn: "ID");
+                    table.ForeignKey(
+                        name: "FK_Pracenje_Korisnik_PratilacKorisnikID",
+                        column: x => x.PratilacKorisnikID,
+                        principalTable: "Korisnik",
+                        principalColumn: "ID");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Narudzba",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DatumNarudzbe = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DatumObrade = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Status = table.Column<int>(type: "int", nullable: false),
+                    KorisnikID = table.Column<int>(type: "int", nullable: false),
+                    ArtikalID = table.Column<int>(type: "int", nullable: false),
+                    KurirskaSluzbaID = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Narudzba", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Narudzba_Artikal_ArtikalID",
+                        column: x => x.ArtikalID,
+                        principalTable: "Artikal",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Narudzba_Korisnik_KorisnikID",
+                        column: x => x.KorisnikID,
+                        principalTable: "Korisnik",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Narudzba_Korisnik_KurirskaSluzbaID",
+                        column: x => x.KurirskaSluzbaID,
+                        principalTable: "Korisnik",
+                        principalColumn: "ID");
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Artikal_KorisnikId",
+                table: "Artikal",
+                column: "KorisnikId");
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -212,14 +319,41 @@ namespace ooadepazar.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Narudzba_ArtikalID",
+                table: "Narudzba",
+                column: "ArtikalID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Narudzba_KorisnikID",
+                table: "Narudzba",
+                column: "KorisnikID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Narudzba_KurirskaSluzbaID",
+                table: "Narudzba",
+                column: "KurirskaSluzbaID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Notifikacija_KorisnikId",
+                table: "Notifikacija",
+                column: "KorisnikId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Pracenje_PraceniKorisnikID",
+                table: "Pracenje",
+                column: "PraceniKorisnikID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Pracenje_PratilacKorisnikID",
+                table: "Pracenje",
+                column: "PratilacKorisnikID");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Artikal");
-
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
@@ -236,10 +370,25 @@ namespace ooadepazar.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Narudzba");
+
+            migrationBuilder.DropTable(
+                name: "Notifikacija");
+
+            migrationBuilder.DropTable(
+                name: "Pracenje");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Artikal");
+
+            migrationBuilder.DropTable(
+                name: "Korisnik");
         }
     }
 }
