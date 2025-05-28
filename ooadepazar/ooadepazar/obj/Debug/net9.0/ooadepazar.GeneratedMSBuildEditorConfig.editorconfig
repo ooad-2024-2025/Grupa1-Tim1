@@ -17,41 +17,121 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ooadepazar
 build_property.RootNamespace = ooadepazar
-build_property.ProjectDir = /Users/bakir/Desktop/fax/ooad/ooadepazar/ooadepazar/
+build_property.ProjectDir = C:\Users\Alibegovici\Grupa1-Tim1\ooadepazar\ooadepazar\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/bakir/Desktop/fax/ooad/ooadepazar/ooadepazar
+build_property.MSBuildProjectDirectory = C:\Users\Alibegovici\Grupa1-Tim1\ooadepazar\ooadepazar
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[/Users/bakir/Desktop/fax/ooad/ooadepazar/ooadepazar/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+[C:/Users/Alibegovici/Grupa1-Tim1/ooadepazar/ooadepazar/Views/Artikal/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWthbFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/bakir/Desktop/fax/ooad/ooadepazar/ooadepazar/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+[C:/Users/Alibegovici/Grupa1-Tim1/ooadepazar/ooadepazar/Views/Artikal/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWthbFxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/bakir/Desktop/fax/ooad/ooadepazar/ooadepazar/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+[C:/Users/Alibegovici/Grupa1-Tim1/ooadepazar/ooadepazar/Views/Artikal/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWthbFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/bakir/Desktop/fax/ooad/ooadepazar/ooadepazar/Views/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[C:/Users/Alibegovici/Grupa1-Tim1/ooadepazar/ooadepazar/Views/Artikal/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWthbFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/bakir/Desktop/fax/ooad/ooadepazar/ooadepazar/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[C:/Users/Alibegovici/Grupa1-Tim1/ooadepazar/ooadepazar/Views/Artikal/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWthbFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/bakir/Desktop/fax/ooad/ooadepazar/ooadepazar/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+[C:/Users/Alibegovici/Grupa1-Tim1/ooadepazar/ooadepazar/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/bakir/Desktop/fax/ooad/ooadepazar/ooadepazar/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-iz1lrmbixp
+[C:/Users/Alibegovici/Grupa1-Tim1/ooadepazar/ooadepazar/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alibegovici/Grupa1-Tim1/ooadepazar/ooadepazar/Views/Narudzba/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmFydWR6YmFcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alibegovici/Grupa1-Tim1/ooadepazar/ooadepazar/Views/Narudzba/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmFydWR6YmFcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alibegovici/Grupa1-Tim1/ooadepazar/ooadepazar/Views/Narudzba/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmFydWR6YmFcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alibegovici/Grupa1-Tim1/ooadepazar/ooadepazar/Views/Narudzba/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmFydWR6YmFcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alibegovici/Grupa1-Tim1/ooadepazar/ooadepazar/Views/Narudzba/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmFydWR6YmFcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alibegovici/Grupa1-Tim1/ooadepazar/ooadepazar/Views/Notifikacija/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90aWZpa2FjaWphXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alibegovici/Grupa1-Tim1/ooadepazar/ooadepazar/Views/Notifikacija/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90aWZpa2FjaWphXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alibegovici/Grupa1-Tim1/ooadepazar/ooadepazar/Views/Notifikacija/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90aWZpa2FjaWphXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alibegovici/Grupa1-Tim1/ooadepazar/ooadepazar/Views/Notifikacija/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90aWZpa2FjaWphXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alibegovici/Grupa1-Tim1/ooadepazar/ooadepazar/Views/Notifikacija/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90aWZpa2FjaWphXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alibegovici/Grupa1-Tim1/ooadepazar/ooadepazar/Views/Pracenje/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJhY2VuamVcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alibegovici/Grupa1-Tim1/ooadepazar/ooadepazar/Views/Pracenje/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJhY2VuamVcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alibegovici/Grupa1-Tim1/ooadepazar/ooadepazar/Views/Pracenje/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJhY2VuamVcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alibegovici/Grupa1-Tim1/ooadepazar/ooadepazar/Views/Pracenje/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJhY2VuamVcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alibegovici/Grupa1-Tim1/ooadepazar/ooadepazar/Views/Pracenje/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJhY2VuamVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alibegovici/Grupa1-Tim1/ooadepazar/ooadepazar/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alibegovici/Grupa1-Tim1/ooadepazar/ooadepazar/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alibegovici/Grupa1-Tim1/ooadepazar/ooadepazar/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alibegovici/Grupa1-Tim1/ooadepazar/ooadepazar/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alibegovici/Grupa1-Tim1/ooadepazar/ooadepazar/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-86jvk7997v
