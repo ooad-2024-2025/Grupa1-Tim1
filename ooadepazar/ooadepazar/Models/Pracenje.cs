@@ -8,9 +8,7 @@ namespace ooadepazar.Models
         [Key]
         public int ID { get; set; }
 
-        public int? PraceniID { get; set; }
-        public Korisnik? PraceniKorisnik { get; set; }
-        public int? PratilacID { get; set; }
-        public Korisnik? PratilacKorisnik { get; set; }
+        public ApplicationUser PraceniID { get; set; }
+        public ApplicationUser PratilacID { get; set; }
     }
 }

@@ -19,7 +19,5 @@ public class Artikal
     public string Lokacija { get; set; }
     public DateTime DatumObjave { get; set; }
     
-    public int KorisnikId { get; set; }
-    public Korisnik? Korisnik { get; set; }
-    
+    public ApplicationUser KorisnikId { get; set; }
 }

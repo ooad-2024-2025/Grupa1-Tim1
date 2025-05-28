@@ -18,13 +18,11 @@ public class Narudzba
     [Required]  
     public Status Status { get; set; }  // Kreiran, UObradi, Dostavljen
 
-    public int? KorisnikID { get; set; }
-    public Korisnik? Korisnik { get; set; }
+    public ApplicationUser KorisnikId { get; set; }
     
     public int? ArtikalID { get; set; }
     public Artikal? Artikal { get; set; }
     
-    public int? KurirskaSluzbaID { get; set; }
-    public Korisnik? KurirskaSluzba { get; set; }
+    public ApplicationUser KurirskaSluzbaID { get; set; }
     
 }

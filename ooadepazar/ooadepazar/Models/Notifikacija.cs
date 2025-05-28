@@ -12,6 +12,5 @@ public class Notifikacija
     public DateTime DatumObjave { get; set; }
     public bool Procitana { get; set; } = false;
 
-    public int KorisnikId { get; set; }
-    public Korisnik? Korisnik { get; set; }
+    public ApplicationUser KorisnikId { get; set; }
 }
