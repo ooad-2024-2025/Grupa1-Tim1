@@ -20,7 +20,7 @@ public class HomeController : Controller
     public async Task<IActionResult> Index()
     {
         var artikli = await _context.Artikal
-            .Include(a => a.KorisnikId)
+            .Include(a => a.Korisnik)
             .OrderByDescending(a => a.DatumObjave)
             .ToListAsync();
 

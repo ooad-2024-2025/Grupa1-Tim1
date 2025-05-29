@@ -31,9 +31,9 @@
                         </div>
                         <div class="card-footer bg-light d-flex justify-content-between align-items-center">
                             <small class="text-muted">Objavljeno: @item.DatumObjave.ToShortDateString()</small>
-                            @if (item.KorisnikId != null)
+                            @if (item.Korisnik != null)
                             {
-                                <small class="text-info">Objavio: @item.KorisnikId.UserName</small>
+                                <small class="text-info">Objavio: @item.Korisnik.UserName</small>
                             }
                             else
                             {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,10 +14,12 @@ namespace ooadepazar.Controllers
     public class ArtikalController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public ArtikalController(ApplicationDbContext context)
+        public ArtikalController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Artikal
@@ -46,6 +49,7 @@ namespace ooadepazar.Controllers
         // GET: Artikal/Create
         public IActionResult Create()
         {
+            ViewBag.StanjeOptions = new SelectList(Enum.GetValues(typeof(Stanje)));
             return View();
         }
 
@@ -56,8 +60,21 @@ namespace ooadepazar.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,Naziv,Stanje,Opis,Cijena,Lokacija,DatumObjave")] Artikal artikal)
         {
+            ViewBag.StanjeOptions = new SelectList(Enum.GetValues(typeof(Stanje)));
+
+            artikal.DatumObjave = DateTime.Now;
             if (ModelState.IsValid)
             {
+                var currentUser = await _userManager.GetUserAsync(User);
+
+                if (currentUser == null)
+                {
+                    // Handle case where user is not logged in (e.g., redirect to login)
+                    // This scenario should ideally be prevented by [Authorize] attribute
+                    return RedirectToPage("/Account/Login", new { area = "Identity" });
+                }
+                artikal.Korisnik = currentUser;
+                
                 _context.Add(artikal);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
