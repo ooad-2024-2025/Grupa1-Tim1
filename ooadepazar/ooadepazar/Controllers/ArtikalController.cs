@@ -50,6 +50,7 @@ namespace ooadepazar.Controllers
         public IActionResult Create()
         {
             ViewBag.StanjeOptions = new SelectList(Enum.GetValues(typeof(Stanje)));
+            ViewBag.KategorijaOptions = new SelectList(Enum.GetValues(typeof(Kategorija)));
             return View();
         }
 
@@ -58,9 +59,10 @@ namespace ooadepazar.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Naziv,Stanje,Opis,Cijena,Lokacija,DatumObjave")] Artikal artikal)
+        public async Task<IActionResult> Create([Bind("ID,Naziv,Stanje,Opis,Cijena,Lokacija,DatumObjave,Kategorija,SlikaUrl")] Artikal artikal)
         {
             ViewBag.StanjeOptions = new SelectList(Enum.GetValues(typeof(Stanje)));
+            ViewBag.KategorijaOptions = new SelectList(Enum.GetValues(typeof(Kategorija)));
 
             artikal.DatumObjave = DateTime.Now;
             if (ModelState.IsValid)
@@ -103,7 +105,7 @@ namespace ooadepazar.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Naziv,Stanje,Opis,Cijena,Lokacija,DatumObjave")] Artikal artikal)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Naziv,Stanje,Opis,Cijena,Lokacija,DatumObjave,Kategorija,SlikaUrl")] Artikal artikal)
         {
             if (id != artikal.ID)
             {

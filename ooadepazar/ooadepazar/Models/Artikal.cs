@@ -15,6 +15,8 @@ public class Artikal
     public string Opis { get; set; }
     [Required]
     public float Cijena { get; set; }
+    public String? SlikaUrl { get; set; }
+    public Kategorija Kategorija { get; set; }
     [Required]
     public string Lokacija { get; set; }
     public DateTime DatumObjave { get; set; }
