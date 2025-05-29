@@ -23,6 +23,6 @@ public class Narudzba
     public int? ArtikalID { get; set; }
     public Artikal? Artikal { get; set; }
     
-    public ApplicationUser KurirskaSluzbaID { get; set; }
+    public ApplicationUser KurirskaSluzbaId { get; set; }
     
 }

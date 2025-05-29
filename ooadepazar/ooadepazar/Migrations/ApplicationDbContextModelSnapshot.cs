@@ -312,7 +312,7 @@ namespace ooadepazar.Migrations
                     b.Property<string>("KorisnikIdId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("KurirskaSluzbaIDId")
+                    b.Property<string>("KurirskaSluzbaIdId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Status")
@@ -324,7 +324,7 @@ namespace ooadepazar.Migrations
 
                     b.HasIndex("KorisnikIdId");
 
-                    b.HasIndex("KurirskaSluzbaIDId");
+                    b.HasIndex("KurirskaSluzbaIdId");
 
                     b.ToTable("Narudzba", (string)null);
                 });
@@ -450,15 +450,15 @@ namespace ooadepazar.Migrations
                         .WithMany()
                         .HasForeignKey("KorisnikIdId");
 
-                    b.HasOne("ooadepazar.Models.ApplicationUser", "KurirskaSluzbaID")
+                    b.HasOne("ooadepazar.Models.ApplicationUser", "KurirskaSluzbaId")
                         .WithMany()
-                        .HasForeignKey("KurirskaSluzbaIDId");
+                        .HasForeignKey("KurirskaSluzbaIdId");
 
                     b.Navigation("Artikal");
 
                     b.Navigation("KorisnikId");
 
-                    b.Navigation("KurirskaSluzbaID");
+                    b.Navigation("KurirskaSluzbaId");
                 });
 
             modelBuilder.Entity("ooadepazar.Models.Notifikacija", b =>
