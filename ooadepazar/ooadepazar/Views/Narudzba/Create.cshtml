@@ -10,30 +10,18 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="DatumNarudzbe" class="control-label"></label>
-                <input asp-for="DatumNarudzbe" class="form-control" />
-                <span asp-validation-for="DatumNarudzbe" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DatumObrade" class="control-label"></label>
-                <input asp-for="DatumObrade" class="form-control" />
-                <span asp-validation-for="DatumObrade" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                <select asp-for="Status" class="form-control"></select>
-                <span asp-validation-for="Status" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ArtikalID" class="control-label"></label>
-                <select asp-for="ArtikalID" class ="form-control" asp-items="ViewBag.ArtikalID"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+
+        <form asp-action="Create" method="post">
+            <input asp-for="DatumNarudzbe" class="form-control" />
+            <input asp-for="DatumObrade" class="form-control" />
+
+            <select asp-for="Status" class="form-control"
+                    asp-items="Html.GetEnumSelectList<ooadepazar.Models.Status>()"></select>
+
+            <!-- Hidden input for Artikal ID from URL -->
+            <input type="hidden" name="artikalId" value="@ViewBag.SelectedArtikalId" />
+
+            <input type="submit" value="Create" class="btn btn-primary" />
         </form>
     </div>
 </div>
