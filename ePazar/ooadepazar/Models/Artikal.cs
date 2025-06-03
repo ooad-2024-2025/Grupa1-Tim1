@@ -20,5 +20,6 @@ public class Artikal
     [Required]
     public string Lokacija { get; set; }
     public DateTime DatumObjave { get; set; }
+    public DateTime DatumAzuriranja { get; set; }
     public ApplicationUser? Korisnik { get; set; }
 }
