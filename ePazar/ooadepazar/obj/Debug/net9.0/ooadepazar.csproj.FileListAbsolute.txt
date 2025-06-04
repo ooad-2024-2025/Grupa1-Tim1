@@ -1861,7 +1861,6 @@ C:/Users/Alibegovici/Grupa1-Tim1/ooadepazar/ooadepazar/obj/Debug/net9.0/ref/ooad
 /Users/bakir/Desktop/fax/ooad/ePazar/ooadepazar/obj/Debug/net9.0/compressed/nezrqnk58p-muycvpuwrr.gz
 /Users/bakir/Desktop/fax/ooad/ePazar/ooadepazar/obj/Debug/net9.0/compressed/v0zgfp0y55-87fc7y1x7t.gz
 /Users/bakir/Desktop/fax/ooad/ePazar/ooadepazar/obj/Debug/net9.0/compressed/yfc7ypekbg-mlv21k5csn.gz
-/Users/bakir/Desktop/fax/ooad/ePazar/ooadepazar/obj/Debug/net9.0/compressed/xnvg7abi5f-lugek5hnai.gz
 /Users/bakir/Desktop/fax/ooad/ePazar/ooadepazar/obj/Debug/net9.0/compressed/npmjalfdd7-61n19gt1b8.gz
 /Users/bakir/Desktop/fax/ooad/ePazar/ooadepazar/obj/Debug/net9.0/compressed/g9fjn9vxbs-fr7q2aak1r.gz
 /Users/bakir/Desktop/fax/ooad/ePazar/ooadepazar/obj/Debug/net9.0/compressed/za8c9vvqxi-bqjiyaj88i.gz
@@ -1940,3 +1939,5 @@ C:/Users/Alibegovici/Grupa1-Tim1/ooadepazar/ooadepazar/obj/Debug/net9.0/ref/ooad
 /Users/bakir/Desktop/fax/ooad/ePazar/ooadepazar/obj/Debug/net9.0/ooadepazar.pdb
 /Users/bakir/Desktop/fax/ooad/ePazar/ooadepazar/obj/Debug/net9.0/ooadepazar.genruntimeconfig.cache
 /Users/bakir/Desktop/fax/ooad/ePazar/ooadepazar/obj/Debug/net9.0/ref/ooadepazar.dll
+/Users/bakir/Desktop/fax/ooad/ePazar/ooadepazar/bin/Debug/net9.0/Markdig.dll
+/Users/bakir/Desktop/fax/ooad/ePazar/ooadepazar/obj/Debug/net9.0/compressed/xnvg7abi5f-a1sg1ykata.gz

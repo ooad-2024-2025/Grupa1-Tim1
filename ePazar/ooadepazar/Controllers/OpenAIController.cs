@@ -1,6 +1,7 @@
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
+using Microsoft.Identity.Client;
 
 namespace ooadepazar.Controllers;
 
@@ -8,20 +9,22 @@ public class OpenAIController
 {
     private static readonly HttpClient _httpClient = new HttpClient();
 
-    public async Task<string> SendMessageAsync()
+    public async Task<string> SendMessageAsync(string prompt)
     {
-        string apiKey = "your_openai_api_key";
-
+        string apiKey = "ih da ti je znat";
+        string systemPrompt =
+            "Odgovaraj samo na bosanskom jeziku. Ti is profesionalni finansijski menadzer. Tvoj je zadatak da procijenis artikle koje ti korisnik dadne, i da kazes korisniku da li je artikal dobra ponuda. Napisi odgovor u 4 dijela: dobre stvari o artiklu, lose stvari o artiklu, kako se poredi sa slicnim artiklima na trzistu, i zakljucak gdje kazes da li se korisniku isplati kupiti dati artikal.";
+        
         _httpClient.DefaultRequestHeaders.Authorization =
             new AuthenticationHeaderValue("Bearer", apiKey);
 
         var requestBody = new
         {
-            model = "gpt-4o", // or "gpt-3.5-turbo"
+            model = "gpt-4o",
             messages = new[]
             {
-                new { role = "system", content = "Odgovaraj samo na bosanskom jeziku. Budi kratak i jasan pomoćnik." },
-                new { role = "user", content = "Kako mogu poboljšati svoje vještine programiranja?" }
+                new { role = "system", content = systemPrompt },
+                new { role = "user", content = prompt }
             }
         };
 
