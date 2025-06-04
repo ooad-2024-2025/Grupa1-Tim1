@@ -37,6 +37,7 @@ namespace ooadepazar.Controllers
             }
 
             var artikal = await _context.Artikal
+                .Include(a => a.Korisnik)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (artikal == null)
             {
@@ -65,6 +66,7 @@ namespace ooadepazar.Controllers
             ViewBag.KategorijaOptions = new SelectList(Enum.GetValues(typeof(Kategorija)));
 
             artikal.DatumObjave = DateTime.Now;
+            artikal.DatumAzuriranja = DateTime.Now;
             if (ModelState.IsValid)
             {
                 var currentUser = await _userManager.GetUserAsync(User);
@@ -97,6 +99,10 @@ namespace ooadepazar.Controllers
             {
                 return NotFound();
             }
+
+            ViewBag.StanjeOptions = new SelectList(Enum.GetValues(typeof(Stanje)));
+            ViewBag.KategorijaOptions = new SelectList(Enum.GetValues(typeof(Kategorija)));
+
             return View(artikal);
         }
 
@@ -114,9 +120,22 @@ namespace ooadepazar.Controllers
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(artikal);
+                try {
+                    var existingArtikal = await _context.Artikal.FindAsync(id);
+                    if (existingArtikal == null)
+                        return NotFound();
+
+                    existingArtikal.Naziv = artikal.Naziv;
+                    existingArtikal.Stanje = artikal.Stanje;
+                    existingArtikal.Opis = artikal.Opis;
+                    existingArtikal.Cijena = artikal.Cijena;
+                    existingArtikal.Lokacija = artikal.Lokacija;
+                    existingArtikal.Kategorija = artikal.Kategorija;
+                    existingArtikal.SlikaUrl = artikal.SlikaUrl;
+                    // Do NOT update DatumObjave
+                    existingArtikal.DatumAzuriranja = DateTime.Now; // Set to current date/time
+
+                    _context.Update(existingArtikal);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -132,6 +151,10 @@ namespace ooadepazar.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
+            ViewBag.StanjeOptions = new SelectList(Enum.GetValues(typeof(Stanje)));
+            ViewBag.KategorijaOptions = new SelectList(Enum.GetValues(typeof(Kategorija)));
+
             return View(artikal);
         }
 

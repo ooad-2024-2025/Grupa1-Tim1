@@ -1,61 +1,77 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Alibegovici\\Grupa1-Tim1\\ooadepazar\\",
+  "WorkspaceRootPath": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\alibegovici\\grupa1-tim1\\ooadepazar\\ooadepazar\\controllers\\pracenjecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\controllers\\pracenjecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\alibegovici\\desktop\\grupa1-tim1\\epazar\\ooadepazar\\views\\artikal\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\views\\artikal\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\alibegovici\\grupa1-tim1\\ooadepazar\\ooadepazar\\views\\pracenje\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\views\\pracenje\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\alibegovici\\grupa1-tim1\\ooadepazar\\ooadepazar\\models\\notifikacija.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\models\\notifikacija.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\alibegovici\\grupa1-tim1\\ooadepazar\\ooadepazar\\controllers\\notifikacijacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\controllers\\notifikacijacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\alibegovici\\grupa1-tim1\\ooadepazar\\ooadepazar\\models\\narudzba.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\models\\narudzba.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\alibegovici\\grupa1-tim1\\ooadepazar\\ooadepazar\\controllers\\narudzbacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\controllers\\narudzbacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\alibegovici\\grupa1-tim1\\ooadepazar\\ooadepazar\\controllers\\artikalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\alibegovici\\desktop\\grupa1-tim1\\epazar\\ooadepazar\\controllers\\artikalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\controllers\\artikalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\alibegovici\\grupa1-tim1\\ooadepazar\\ooadepazar\\models\\uloga.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\models\\uloga.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\alibegovici\\desktop\\grupa1-tim1\\epazar\\ooadepazar\\views\\artikal\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\views\\artikal\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\alibegovici\\grupa1-tim1\\ooadepazar\\ooadepazar\\models\\status.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\models\\status.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\alibegovici\\desktop\\grupa1-tim1\\epazar\\ooadepazar\\views\\artikal\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\views\\artikal\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\alibegovici\\grupa1-tim1\\ooadepazar\\ooadepazar\\models\\stanje.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\models\\stanje.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\alibegovici\\desktop\\grupa1-tim1\\epazar\\ooadepazar\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\alibegovici\\grupa1-tim1\\ooadepazar\\ooadepazar\\models\\pracenje.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\models\\pracenje.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\alibegovici\\grupa1-tim1\\ooadepazar\\ooadepazar\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\alibegovici\\grupa1-tim1\\ooadepazar\\ooadepazar\\models\\artikal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\alibegovici\\desktop\\grupa1-tim1\\epazar\\ooadepazar\\models\\artikal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\models\\artikal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\alibegovici\\grupa1-tim1\\ooadepazar\\ooadepazar\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\alibegovici\\desktop\\grupa1-tim1\\epazar\\ooadepazar\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\alibegovici\\desktop\\grupa1-tim1\\epazar\\ooadepazar\\controllers\\pracenjecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\controllers\\pracenjecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\alibegovici\\desktop\\grupa1-tim1\\epazar\\ooadepazar\\models\\notifikacija.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\models\\notifikacija.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\alibegovici\\desktop\\grupa1-tim1\\epazar\\ooadepazar\\controllers\\notifikacijacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\controllers\\notifikacijacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\alibegovici\\desktop\\grupa1-tim1\\epazar\\ooadepazar\\models\\narudzba.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\models\\narudzba.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\alibegovici\\desktop\\grupa1-tim1\\epazar\\ooadepazar\\controllers\\narudzbacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\controllers\\narudzbacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\alibegovici\\desktop\\grupa1-tim1\\epazar\\ooadepazar\\models\\uloga.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\models\\uloga.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\alibegovici\\desktop\\grupa1-tim1\\epazar\\ooadepazar\\models\\status.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\models\\status.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\alibegovici\\desktop\\grupa1-tim1\\epazar\\ooadepazar\\models\\stanje.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\models\\stanje.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\alibegovici\\desktop\\grupa1-tim1\\epazar\\ooadepazar\\models\\pracenje.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\models\\pracenje.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\alibegovici\\desktop\\grupa1-tim1\\epazar\\ooadepazar\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|c:\\users\\alibegovici\\desktop\\grupa1-tim1\\epazar\\ooadepazar\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F885BAF9-63B1-4F84-A894-8FCE1984B26D}|ooadepazar\\ooadepazar.csproj|solutionrelative:ooadepazar\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -66,80 +82,147 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\Alibegovici\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Views\\Pracenje\\Create.cshtml",
-              "RelativeDocumentMoniker": "ooadepazar\\Views\\Pracenje\\Create.cshtml",
-              "ToolTip": "C:\\Users\\Alibegovici\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Views\\Pracenje\\Create.cshtml",
-              "RelativeToolTip": "ooadepazar\\Views\\Pracenje\\Create.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Views\\Artikal\\Details.cshtml",
+              "RelativeDocumentMoniker": "ooadepazar\\Views\\Artikal\\Details.cshtml",
+              "ToolTip": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Views\\Artikal\\Details.cshtml",
+              "RelativeToolTip": "ooadepazar\\Views\\Artikal\\Details.cshtml",
+              "ViewState": "AgIAACUAAAAAAAAAAAAqwDMAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-28T09:36:28.65Z",
+              "WhenOpened": "2025-06-04T10:54:17.129Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Views\\Artikal\\Create.cshtml",
+              "RelativeDocumentMoniker": "ooadepazar\\Views\\Artikal\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Views\\Artikal\\Create.cshtml",
+              "RelativeToolTip": "ooadepazar\\Views\\Artikal\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-04T10:40:39.442Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "ooadepazar\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Properties\\launchSettings.json",
+              "RelativeToolTip": "ooadepazar\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-06-04T10:35:21.457Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "PracenjeController.cs",
-              "DocumentMoniker": "C:\\Users\\Alibegovici\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Controllers\\PracenjeController.cs",
+              "DocumentMoniker": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Controllers\\PracenjeController.cs",
               "RelativeDocumentMoniker": "ooadepazar\\Controllers\\PracenjeController.cs",
-              "ToolTip": "C:\\Users\\Alibegovici\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Controllers\\PracenjeController.cs",
+              "ToolTip": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Controllers\\PracenjeController.cs",
               "RelativeToolTip": "ooadepazar\\Controllers\\PracenjeController.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACMAAAAAAAAAAAAgwDIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-28T09:34:53.59Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "ArtikalController.cs",
-              "DocumentMoniker": "C:\\Users\\Alibegovici\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Controllers\\ArtikalController.cs",
+              "DocumentMoniker": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Controllers\\ArtikalController.cs",
               "RelativeDocumentMoniker": "ooadepazar\\Controllers\\ArtikalController.cs",
-              "ToolTip": "C:\\Users\\Alibegovici\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Controllers\\ArtikalController.cs",
+              "ToolTip": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Controllers\\ArtikalController.cs",
               "RelativeToolTip": "ooadepazar\\Controllers\\ArtikalController.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAMwFYAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAJcAAAAAAAAAAAAwwI4AAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-28T09:26:55.093Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 15,
               "Title": "Pracenje.cs",
-              "DocumentMoniker": "C:\\Users\\Alibegovici\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\Pracenje.cs",
+              "DocumentMoniker": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Models\\Pracenje.cs",
               "RelativeDocumentMoniker": "ooadepazar\\Models\\Pracenje.cs",
-              "ToolTip": "C:\\Users\\Alibegovici\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\Pracenje.cs",
+              "ToolTip": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Models\\Pracenje.cs",
               "RelativeToolTip": "ooadepazar\\Models\\Pracenje.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T09:13:39.476Z",
+              "WhenOpened": "2025-05-28T09:13:39.476Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Views\\Artikal\\Edit.cshtml",
+              "RelativeDocumentMoniker": "ooadepazar\\Views\\Artikal\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Views\\Artikal\\Edit.cshtml",
+              "RelativeToolTip": "ooadepazar\\Views\\Artikal\\Edit.cshtml",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAACsAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-04T10:47:33.998Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "ooadepazar\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "ooadepazar\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAF4AAAAAAAAAAAAawGwAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-04T11:03:13.395Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Artikal.cs",
+              "DocumentMoniker": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Models\\Artikal.cs",
+              "RelativeDocumentMoniker": "ooadepazar\\Models\\Artikal.cs",
+              "ToolTip": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Models\\Artikal.cs",
+              "RelativeToolTip": "ooadepazar\\Models\\Artikal.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwAwAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T07:40:25.925Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "ErrorViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Alibegovici\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\ErrorViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Models\\ErrorViewModel.cs",
               "RelativeDocumentMoniker": "ooadepazar\\Models\\ErrorViewModel.cs",
-              "ToolTip": "C:\\Users\\Alibegovici\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\ErrorViewModel.cs",
+              "ToolTip": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Models\\ErrorViewModel.cs",
               "RelativeToolTip": "ooadepazar\\Models\\ErrorViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T09:13:31.023Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-28T09:13:31.023Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "ApplicationUser.cs",
-              "DocumentMoniker": "C:\\Users\\Alibegovici\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\ApplicationUser.cs",
+              "DocumentMoniker": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Models\\ApplicationUser.cs",
               "RelativeDocumentMoniker": "ooadepazar\\Models\\ApplicationUser.cs",
-              "ToolTip": "C:\\Users\\Alibegovici\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\ApplicationUser.cs",
+              "ToolTip": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Models\\ApplicationUser.cs",
               "RelativeToolTip": "ooadepazar\\Models\\ApplicationUser.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -148,107 +231,87 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "Notifikacija.cs",
-              "DocumentMoniker": "C:\\Users\\Alibegovici\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\Notifikacija.cs",
+              "DocumentMoniker": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Models\\Notifikacija.cs",
               "RelativeDocumentMoniker": "ooadepazar\\Models\\Notifikacija.cs",
-              "ToolTip": "C:\\Users\\Alibegovici\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\Notifikacija.cs",
+              "ToolTip": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Models\\Notifikacija.cs",
               "RelativeToolTip": "ooadepazar\\Models\\Notifikacija.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-25T21:29:16.965Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "NotifikacijaController.cs",
-              "DocumentMoniker": "C:\\Users\\Alibegovici\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Controllers\\NotifikacijaController.cs",
-              "RelativeDocumentMoniker": "ooadepazar\\Controllers\\NotifikacijaController.cs",
-              "ToolTip": "C:\\Users\\Alibegovici\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Controllers\\NotifikacijaController.cs",
-              "RelativeToolTip": "ooadepazar\\Controllers\\NotifikacijaController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T09:34:03.124Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Status.cs",
-              "DocumentMoniker": "C:\\Users\\Alibegovici\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\Status.cs",
-              "RelativeDocumentMoniker": "ooadepazar\\Models\\Status.cs",
-              "ToolTip": "C:\\Users\\Alibegovici\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\Status.cs",
-              "RelativeToolTip": "ooadepazar\\Models\\Status.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-25T21:13:19.293Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Narudzba.cs",
-              "DocumentMoniker": "C:\\Users\\Alibegovici\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\Narudzba.cs",
-              "RelativeDocumentMoniker": "ooadepazar\\Models\\Narudzba.cs",
-              "ToolTip": "C:\\Users\\Alibegovici\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\Narudzba.cs",
-              "RelativeToolTip": "ooadepazar\\Models\\Narudzba.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAwwBsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-25T21:08:15.463Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "NarudzbaController.cs",
-              "DocumentMoniker": "C:\\Users\\Alibegovici\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Controllers\\NarudzbaController.cs",
-              "RelativeDocumentMoniker": "ooadepazar\\Controllers\\NarudzbaController.cs",
-              "ToolTip": "C:\\Users\\Alibegovici\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Controllers\\NarudzbaController.cs",
-              "RelativeToolTip": "ooadepazar\\Controllers\\NarudzbaController.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T09:32:24.323Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Artikal.cs",
-              "DocumentMoniker": "C:\\Users\\Alibegovici\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\Artikal.cs",
-              "RelativeDocumentMoniker": "ooadepazar\\Models\\Artikal.cs",
-              "ToolTip": "C:\\Users\\Alibegovici\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\Artikal.cs",
-              "RelativeToolTip": "ooadepazar\\Models\\Artikal.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T07:40:25.925Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Uloga.cs",
-              "DocumentMoniker": "C:\\Users\\Alibegovici\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\Uloga.cs",
-              "RelativeDocumentMoniker": "ooadepazar\\Models\\Uloga.cs",
-              "ToolTip": "C:\\Users\\Alibegovici\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\Uloga.cs",
-              "RelativeToolTip": "ooadepazar\\Models\\Uloga.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-25T21:23:45.64Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-25T21:29:16.965Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
+              "Title": "NotifikacijaController.cs",
+              "DocumentMoniker": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Controllers\\NotifikacijaController.cs",
+              "RelativeDocumentMoniker": "ooadepazar\\Controllers\\NotifikacijaController.cs",
+              "ToolTip": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Controllers\\NotifikacijaController.cs",
+              "RelativeToolTip": "ooadepazar\\Controllers\\NotifikacijaController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T09:34:03.124Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Status.cs",
+              "DocumentMoniker": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Models\\Status.cs",
+              "RelativeDocumentMoniker": "ooadepazar\\Models\\Status.cs",
+              "ToolTip": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Models\\Status.cs",
+              "RelativeToolTip": "ooadepazar\\Models\\Status.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-25T21:13:19.293Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Narudzba.cs",
+              "DocumentMoniker": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Models\\Narudzba.cs",
+              "RelativeDocumentMoniker": "ooadepazar\\Models\\Narudzba.cs",
+              "ToolTip": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Models\\Narudzba.cs",
+              "RelativeToolTip": "ooadepazar\\Models\\Narudzba.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAwwBsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-25T21:08:15.463Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "NarudzbaController.cs",
+              "DocumentMoniker": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Controllers\\NarudzbaController.cs",
+              "RelativeDocumentMoniker": "ooadepazar\\Controllers\\NarudzbaController.cs",
+              "ToolTip": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Controllers\\NarudzbaController.cs",
+              "RelativeToolTip": "ooadepazar\\Controllers\\NarudzbaController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T09:32:24.323Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Uloga.cs",
+              "DocumentMoniker": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Models\\Uloga.cs",
+              "RelativeDocumentMoniker": "ooadepazar\\Models\\Uloga.cs",
+              "ToolTip": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Models\\Uloga.cs",
+              "RelativeToolTip": "ooadepazar\\Models\\Uloga.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-25T21:23:45.64Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "Stanje.cs",
-              "DocumentMoniker": "C:\\Users\\Alibegovici\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\Stanje.cs",
+              "DocumentMoniker": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Models\\Stanje.cs",
               "RelativeDocumentMoniker": "ooadepazar\\Models\\Stanje.cs",
-              "ToolTip": "C:\\Users\\Alibegovici\\Grupa1-Tim1\\ooadepazar\\ooadepazar\\Models\\Stanje.cs",
+              "ToolTip": "C:\\Users\\Alibegovici\\Desktop\\Grupa1-Tim1\\ePazar\\ooadepazar\\Models\\Stanje.cs",
               "RelativeToolTip": "ooadepazar\\Models\\Stanje.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T09:13:45.542Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-28T09:13:45.542Z"
             }
           ]
         }
