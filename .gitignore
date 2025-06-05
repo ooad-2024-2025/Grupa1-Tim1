@@ -1,7 +1,9 @@
 # Ignore Visual Studio cache files
+.idea/
 .vs/
 *.user
 *.suo
+.DS_Store
 
 # Ignore build output
 bin/
