@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v9.0": {
       "ooadepazar/1.0.0": {
         "dependencies": {
+          "Markdig": "0.41.1",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "9.0.4",
           "Microsoft.AspNetCore.Identity.UI": "9.0.4",
           "Microsoft.EntityFrameworkCore.Design": "9.0.4",
@@ -591,6 +592,14 @@
         "resources": {
           "lib/net6.0/zh-Hant/Humanizer.resources.dll": {
             "locale": "zh-Hant"
+          }
+        }
+      },
+      "Markdig/0.41.1": {
+        "runtime": {
+          "lib/net9.0/Markdig.dll": {
+            "assemblyVersion": "0.41.0.0",
+            "fileVersion": "0.41.1.0"
           }
         }
       },
@@ -1209,22 +1218,22 @@
           "runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll": {
             "rid": "win-arm",
             "assetType": "native",
-            "fileVersion": "5.1.1.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll": {
             "rid": "win-arm64",
             "assetType": "native",
-            "fileVersion": "5.1.1.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "5.1.1.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "5.1.1.0"
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -2031,14 +2040,7 @@
         }
       },
       "System.Diagnostics.EventLog/8.0.0": {},
-      "System.Formats.Asn1/9.0.4": {
-        "runtime": {
-          "lib/net9.0/System.Formats.Asn1.dll": {
-            "assemblyVersion": "9.0.0.0",
-            "fileVersion": "9.0.425.16305"
-          }
-        }
-      },
+      "System.Formats.Asn1/9.0.4": {},
       "System.IdentityModel.Tokens.Jwt/6.35.0": {
         "dependencies": {
           "Microsoft.IdentityModel.JsonWebTokens": "6.35.0",
@@ -2145,14 +2147,7 @@
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
         }
       },
-      "System.Text.Json/9.0.4": {
-        "runtime": {
-          "lib/net9.0/System.Text.Json.dll": {
-            "assemblyVersion": "9.0.0.0",
-            "fileVersion": "9.0.425.16305"
-          }
-        }
-      },
+      "System.Text.Json/9.0.4": {},
       "System.Threading.Channels/7.0.0": {},
       "System.Threading.Tasks.Dataflow/8.0.0": {},
       "System.Threading.Tasks.Extensions/4.5.4": {}
@@ -2527,6 +2522,13 @@
       "sha512": "sha512-VIXB7HCUC34OoaGnO3HJVtSv2/wljPhjV7eKH4+TFPgQdJj2lvHNKY41Dtg0Bphu7X5UaXFR4zrYYyo+GNOjbA==",
       "path": "humanizer.core.zh-hant/2.14.1",
       "hashPath": "humanizer.core.zh-hant.2.14.1.nupkg.sha512"
+    },
+    "Markdig/0.41.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-e9QXUg2agxd9iWV3hO5fA4Qp2avMuXFiElatzD8hp69yIEgESrdhKvDFf9y9NOlPe9jO7AA6W1JAnntLmqwRwA==",
+      "path": "markdig/0.41.1",
+      "hashPath": "markdig.0.41.1.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Cryptography.Internal/9.0.4": {
       "type": "package",
