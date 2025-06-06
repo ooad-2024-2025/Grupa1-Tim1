@@ -5,7 +5,11 @@ using ooadepazar.Data;
 using ooadepazar.Models;
 using Microsoft.AspNetCore.Mvc.Rendering; // Required for SelectList and SelectListItem
 using System.Linq; // Required for LINQ queries
-using System; // Required for Enum
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Markdig;
+using Microsoft.Extensions.Logging; // Required for Enum
 
 namespace ooadepazar.Controllers;
 
@@ -96,9 +100,24 @@ public class HomeController : Controller
         return View(finalArtikli); // Pass the filtered and sorted articles to the view
     }
 
-    public IActionResult Privacy()
+    public async Task<IActionResult> NE_ULAZITI_NA_OVU_RUTU_ODOSE_PARE()
     {
         return View();
+    }
+    
+    [HttpGet]
+    public async Task<IActionResult> GetAIResponseInMarkdown()
+    {
+        string prompt = "💰OSUNČAN MANJI STAN💰\n🏘️ KUPITE STAN NA URIJAMA (PRIJEDOR)!!!\n\n🔔ODLIČNO ORGANIZOVAN PROSTOR🔔\nPROJEKTOVANA POVRŠINA: 42,85m2\nSTRUKTURA:\n* kuhinja\n* dnevni boravak sa trpezarijom\n* soba 1\n* kupatilo\n* hodnik\n* lođa\n\nCIJENA: 2.500 KM/m2\nUKUPNA CIJENA: 107.125KM\n\nStan je na četvrtom spratu a zgrada ima šest spratova.\n\nObjekat  posjeduje  dva lifta!\nUz stan se može kupiti i parking mjesto u podzemnoj garaži koje je 1200KM/m2\nVanjska parking mjesta se ne plaćaju.\nGrijanje -podno na struju\n\nKeramika u hodniku, kupatilu i kuhinji!\nParket u sobi, dnevnom boravku i trpezariji.\nStolarija sedmokomorna!";
+
+        OpenAIController c = new OpenAIController();
+        // string markdown = await c.SendMessageAsync(prompt);
+        string markdown =
+            "**Pozitivne strane o stanu:**\n\n1. **Odlično organizovan prostor:** Površina od 42,85m² je dobro iskorištena sa funkcionalnim rasporedom prostorija.\n2. **Dva lifta u zgradi:** Olakšava pristup stanovima na višim spratovima, što je korisno za svakodnevni život i transport materijala.\n3. **Podno grijanje:** Osigurava ravnomjerno grijanje stana, što poboljšava udobnost tokom zimskih mjeseci.\n4. **Kvalitetna stolarija i podne obloge:** Sedmokomorna stolarija i keramičke pločice, kao i parket, doprinose boljem estetskom dojmu i energetskoj efikasnosti.\n\n**Loše strane o stanu:**\n\n1. **Visoka cijena po kvadratnom metru:** Cijena od 2.500 KM/m² je relativno visoka za Prijedor, što može predstavljati izazov za potencijalne kupce.\n2. **Grijanje na struju:** Može rezultirati visokim troškovima tokom zimskih mjeseci ukoliko nije adekvatno izolirano.\n3. **Lokacija na četvrtom spratu:** Iako zgrada ima liftove, neki bi kupci mogli preferirati niže spratove zbog prijatnosti pristupa ili straha od visine.\n\n**Poređenje sa sličnim artiklima na tržištu:**\n\nNa tržištu nekretnina u Prijedoru, cijena od 2.500 KM/m² je iznad prosjeka. Većina stambenih jedinica u ovom gradu kreće se između 1.500 i 2.000 KM po kvadratnom metru, ovisno o lokaciji, kvaliteti gradnje i dodatnim pogodnostima. Međutim, postojanje podzemne garaže i visoki standardi unutrašnjih radova mogu opravdati višu cijenu za neke kupce.\n\n**Zaključak:**\n\nAko tražite funkcionalno organizovan stan s modernim sadržajima i ne smeta vam cijena iznad proseka, ovo bi mogla biti dobra investicija. Ipak, trebali biste pažljivo razmotriti svoju financijsku situaciju i potencijalne dodatne troškove grijanja. Također, bilo bi korisno istražiti slične ponude u Prijedoru kako biste bili sigurni da donosite najbolju odluku.";
+        await Task.Delay(5000);
+            
+        string html = Markdown.ToHtml(markdown);
+        return Content(html, "text/html");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
