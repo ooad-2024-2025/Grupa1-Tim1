@@ -30,10 +30,18 @@
                         <dt class="col-sm-4">Datum ažuriranja</dt>
                         <dd class="col-sm-8">@Model.DatumAzuriranja.ToString("g")</dd>
                     </dl>
+                    @{
+                        var isOwner = Model.Korisnik != null && Model.Korisnik.UserName == User.Identity?.Name;
+                        var isAdmin = User.IsInRole("Admin");
+                    }
                     <div class="mt-3">
                         <a asp-action="Edit" asp-route-id="@Model?.ID" class="btn btn-primary">Edit</a>
-                        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Back to List</a>
                         <a class="btn btn-success" asp-controller="Narudzba" asp-action="Create" asp-route-id="@Model?.ID">Naruči ovaj artikal</a>
+                        @if (isOwner || isAdmin)
+                        {
+                            <a asp-action="Delete" asp-route-id="@Model.ID" class="btn btn-danger ms-2">Delete</a>
+                        }
                     </div>
                 </div>
             </div>

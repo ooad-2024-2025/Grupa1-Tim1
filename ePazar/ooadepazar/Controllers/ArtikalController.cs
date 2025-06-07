@@ -81,7 +81,7 @@ namespace ooadepazar.Controllers
                 
                 _context.Add(artikal);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Home");
             }
             return View(artikal);
         }
@@ -149,7 +149,7 @@ namespace ooadepazar.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Home");
             }
 
             ViewBag.StanjeOptions = new SelectList(Enum.GetValues(typeof(Stanje)));
@@ -188,7 +188,7 @@ namespace ooadepazar.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index", "Home");
         }
 
         private bool ArtikalExists(int id)
