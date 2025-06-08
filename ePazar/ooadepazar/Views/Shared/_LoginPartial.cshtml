@@ -6,25 +6,44 @@
 
 @{
     var user = await UserManager.GetUserAsync(User);
+    var firstLetter = user?.Ime?.FirstOrDefault().ToString()?.ToUpper() ?? "?";
+    var random = new Random(user?.UserName?.GetHashCode() ?? 0);
+    var bgColor = $"#{random.Next(0x1000000):X6}";
 }
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
-    @if (User.IsInRole("Admin"))
+    if (User.IsInRole("Admin"))
     {
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="UserManagement"
-               asp-action="Index">Dashboard</a>
+        <li class="nav-item d-flex align-items-center">
+            <a class="nav-link text-dark" asp-area="" asp-controller="UserManagement" asp-action="Index">
+                Korisnici
+            </a>
         </li>
     }
 
-    <li class="nav-item">
-        <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @user?.Ime!</a>
-    </li>
-    <li class="nav-item">
-        <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button id="logout" type="submit" class="nav-link btn btn-link text-dark border-0">Logout</button>
-        </form>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="rounded-circle d-flex justify-content-center align-items-center me-2"
+                 style="width: 36px; height: 36px; background-color:@bgColor; color: white; font-weight: bold;">
+                @firstLetter
+            </div>
+            <span class="text-dark fw-semibold">@user?.Ime</span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+            <li>
+                <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index">
+                    <i class="bi bi-person"></i> Profil
+                </a>
+            </li>
+            <li>
+                <form class="dropdown-item p-0" id="logoutForm" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button type="submit" class="btn w-100 text-start">
+                        <i class="bi bi-box-arrow-right"></i> Odjavi se
+                    </button>
+                </form>
+            </li>
+        </ul>
     </li>
 }
 else

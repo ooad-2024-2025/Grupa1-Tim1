@@ -4,12 +4,29 @@
     ViewData["Title"] = "Details";
 }
 
+<style>
+    .fade-right {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 60px; /* adjust the width of fade */
+        height: 100%;
+        background: linear-gradient(to right, rgba(255,255,255,0) 0%, white 100%);
+        pointer-events: none;
+    }
+</style>
+
 <div class="container mt-4">
     <div class="card shadow">
         <div class="row g-0">
             @if (!string.IsNullOrEmpty(Model.SlikaUrl)) {
                 <div class="col-md-4">
-                    <img src="@Model.SlikaUrl" class="img-fluid rounded-start" alt="Slika artikla" style="max-height:300px;object-fit:cover;">
+                    <div class="position-relative h-100 w-100">
+                        <img src="@Model.SlikaUrl" alt="Slika artikla"
+                             class="img-fluid h-100 w-100"
+                             style="object-fit: cover; object-position: center;">
+                        <div class="fade-right"></div>
+                    </div>
                 </div>
             }
             <div class="col-md-8">
@@ -43,7 +60,7 @@
                         <a class="btn btn-success" asp-controller="Narudzba" asp-action="Create" asp-route-id="@Model?.ID">Naruči ovaj artikal</a>
                         @if (isOwner || isAdmin)
                         {
-                            <a asp-action="Delete" asp-route-id="@Model.ID" class="btn btn-danger ms-2">Delete</a>
+                            <a asp-action="Delete" asp-route-id="@Model.ID" class="btn btn-danger">Delete</a>
                         }
                     </div>
                 </div>
@@ -59,7 +76,11 @@
             <div class="card-body">
                 <dl class="row mb-0">
                     <dt class="col-sm-4">Korisničko ime</dt>
-                    <dd class="col-sm-8">@Model.Korisnik.UserName</dd>
+                    <dd class="col-sm-8">
+                        <a asp-controller="Korisnik" asp-action="Index" asp-route-id="@Model.Korisnik.Id">
+                            @Model.Korisnik.Ime @Model.Korisnik.Prezime
+                        </a>
+                    </dd>
                     <dt class="col-sm-4">Ime</dt>
                     <dd class="col-sm-8">@Model.Korisnik.Ime</dd>
                     <dt class="col-sm-4">Prezime</dt>
@@ -68,8 +89,6 @@
                     <dd class="col-sm-8">@Model.Korisnik.EmailAdresa</dd>
                     <dt class="col-sm-4">Broj telefona</dt>
                     <dd class="col-sm-8">@Model.Korisnik.BrojTelefona</dd>
-                    <dt class="col-sm-4">Uloga</dt>
-                    <dd class="col-sm-8">@Model.Korisnik.Uloga</dd>
                     <dt class="col-sm-4">Datum registracije</dt>
                     <dd class="col-sm-8">@Model.Korisnik.DatumRegistracije.ToString("d")</dd>
                 </dl>

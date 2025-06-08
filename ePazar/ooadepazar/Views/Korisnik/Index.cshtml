@@ -1,0 +1,47 @@
+@using Microsoft.AspNetCore.Identity
+@model ooadepazar.Models.ApplicationUser
+@inject ApplicationDbContext DbContext
+@using ooadepazar.Data
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    var currentUserId = UserManager.GetUserAsync(User).Result?.Id;
+    var isNotSelf = currentUserId != Model.Id;
+    var alreadyFollowing = DbContext.Pracenje
+        .Any(p => p.PratilacID.Id == currentUserId && p.PraceniID.Id == Model.Id);
+}
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            Profil korisnika: @Model.UserName
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-4">Ime</dt>
+                <dd class="col-sm-8">@Model.Ime</dd>
+
+                <dt class="col-sm-4">Prezime</dt>
+                <dd class="col-sm-8">@Model.Prezime</dd>
+
+                <dt class="col-sm-4">Email</dt>
+                <dd class="col-sm-8">@Model.EmailAdresa</dd>
+
+                <dt class="col-sm-4">Broj telefona</dt>
+                <dd class="col-sm-8">@Model.BrojTelefona</dd>
+
+                <dt class="col-sm-4">Datum registracije</dt>
+                <dd class="col-sm-8">@Model.DatumRegistracije.ToString("d")</dd>
+            </dl>
+            @if (isNotSelf)
+            {
+                <form asp-controller="Pracenje" asp-action="@(alreadyFollowing ? "Unfollow" : "Follow")" method="post">
+                    <input type="hidden" name="id" value="@Model.Id" />
+                    <button type="submit" class="btn @(alreadyFollowing ? "btn-danger" : "btn-primary")">
+                        @(alreadyFollowing ? "Unfollow" : "Follow")
+                    </button>
+                </form>
+            }
+        </div>
+    </div>
+</div>

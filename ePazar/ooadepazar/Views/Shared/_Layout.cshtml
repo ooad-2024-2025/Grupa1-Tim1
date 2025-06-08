@@ -109,21 +109,24 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Početna</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Artikal" asp-action="Create">Objavi artikal</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privatnost</a>
-                        </li>
+                        @if (User.Identity != null && User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="btn btn-success-custom" asp-area="" asp-controller="Artikal" asp-action="Create">
+                                    <i class="bi bi-plus-circle"></i> Objavite Oglas
+                                </a>
+                            </li>
+                        }
+                        @* <li class="nav-item"> *@
+                        @*     <a class="nav-link text-dark" asp-area="" asp-controller="Artikal" asp-action="Create">Objavi artikal</a> *@
+                        @* </li> *@
+                        @* <li class="nav-item"> *@
+                        @*     <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privatnost</a> *@
+                        @* </li> *@
                     </ul>
                     <ul class="navbar-nav ms-auto mb-2 mb-md-0 d-flex align-items-center">
                         <li class="nav-item me-2">
                             <partial name="_LoginPartial"></partial>
-                        </li>
-                        <li class="nav-item">
-                            <a class="btn btn-success-custom" asp-area="" asp-controller="Artikal" asp-action="Create">
-                                <i class="bi bi-plus-circle"></i> Objavite Oglas
-                            </a>
                         </li>
                     </ul>
                 </div>

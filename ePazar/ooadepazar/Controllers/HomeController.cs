@@ -44,7 +44,7 @@ public class HomeController : Controller
         // Populate Sorting dropdown options
         var sortOptions = new List<SelectListItem>
         {
-            new SelectListItem { Value = "latest", Text = "Najnovije objavljeno" },
+            new SelectListItem { Value = "latest", Text = "Najnovije" },
             new SelectListItem { Value = "price_asc", Text = "Cijena (rastuće)" },
             new SelectListItem { Value = "price_desc", Text = "Cijena (opadajuće)" },
             new SelectListItem { Value = "name_asc", Text = "Naziv (A-Z)" }
