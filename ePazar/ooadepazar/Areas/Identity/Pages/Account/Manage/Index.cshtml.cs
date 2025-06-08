@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using ooadepazar.Data;
 using ooadepazar.Models;
 
 namespace ooadepazar.Areas.Identity.Pages.Account.Manage
@@ -17,13 +19,15 @@ namespace ooadepazar.Areas.Identity.Pages.Account.Manage
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
-
+        private readonly ApplicationDbContext _context;
         public IndexModel(
             UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager)
+            SignInManager<ApplicationUser> signInManager,
+            ApplicationDbContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _context = context;
         }
 
         /// <summary>
@@ -73,16 +77,19 @@ namespace ooadepazar.Areas.Identity.Pages.Account.Manage
                 PhoneNumber = phoneNumber
             };
         }
+        
+        public IList<Artikal> Artikli { get; set; } = new List<Artikal>();
 
         public async Task<IActionResult> OnGetAsync()
         {
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
-            {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
-            }
+                return NotFound("User not found");
 
-            await LoadAsync(user);
+            Artikli = await _context.Artikal
+                .Where(a => a.Korisnik.Id == user.Id)
+                .ToListAsync();
+
             return Page();
         }
 

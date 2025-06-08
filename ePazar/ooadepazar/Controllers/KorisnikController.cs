@@ -1,16 +1,21 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using ooadepazar.Data;
 using ooadepazar.Models;
+using ooadepazar.Models.ViewModels;
 
 namespace ooadepazar.Controllers;
 
 public class KorisnikController : Controller
 {
     private readonly UserManager<ApplicationUser> _userManager;
+    private readonly ApplicationDbContext _context;
 
-    public KorisnikController(UserManager<ApplicationUser> userManager)
+    public KorisnikController(UserManager<ApplicationUser> userManager, ApplicationDbContext context)
     {
         _userManager = userManager;
+        _context = context;
     }
 
     [Route("Korisnik/{id}")]
@@ -19,11 +24,21 @@ public class KorisnikController : Controller
         if (string.IsNullOrEmpty(id))
             return NotFound();
 
-        var user = await _userManager.FindByIdAsync(id);
-
+        var user = await _userManager.Users.FirstOrDefaultAsync(u => u.Id == id);
         if (user == null)
             return NotFound();
 
-        return View(user);
+        var artikli = await _context.Artikal
+            .Include(a => a.Korisnik) // Include the navigation property
+            .Where(a => a.Korisnik.Id == id)
+            .ToListAsync();
+
+        var viewModel = new KorisnikArtikliViewModel
+        {
+            Korisnik = user,
+            Artikli = artikli
+        };
+
+        return View(viewModel);
     }
 }
