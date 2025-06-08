@@ -64,32 +64,34 @@ namespace ooadepazar.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin, Korisnik")]
-        public async Task<IActionResult> Create([Bind("DatumNarudzbe,DatumObrade,Status")] Narudzba narudzba, int artikalId)
+        public async Task<IActionResult> CreateNarudzba(int artikalId)
         {
-            var currentUser = await _userManager.GetUserAsync(User);
-            narudzba.Korisnik = currentUser;
-    
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return Unauthorized();
+            }
+
             var artikal = await _context.Artikal.FindAsync(artikalId);
             if (artikal == null)
             {
-                ModelState.AddModelError("", "Nevažeći artikal.");
-                return View(narudzba);
+                return NotFound("Artikal nije pronađen.");
             }
 
-            narudzba.Artikal = artikal;
-            narudzba.KurirskaSluzba = null;
-
-            ModelState.Remove("KurirskaSluzba");
-            ModelState.Remove("Artikal"); // Prevents model binding issues
-
-            if (ModelState.IsValid)
+            var narudzba = new Narudzba
             {
-                _context.Add(narudzba);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
+                DatumNarudzbe = DateTime.Now,
+                DatumObrade = null,
+                Status = Status.Kreiran,
+                Korisnik = user,
+                Artikal = artikal,
+                KurirskaSluzba = null,
+            };
 
-            return View(narudzba);
+            _context.Narudzba.Add(narudzba);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Index", "Narudzba"); // Or wherever you want to redirect
         }
 
 

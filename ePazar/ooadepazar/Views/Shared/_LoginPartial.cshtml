@@ -1,15 +1,26 @@
 @using Microsoft.AspNetCore.Identity
+@using ooadepazar.Data
 @using ooadepazar.Models
 
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
+@inject ApplicationDbContext _context
 
 @{
     var user = await UserManager.GetUserAsync(User);
     var firstLetter = user?.Ime?.FirstOrDefault().ToString()?.ToUpper() ?? "?";
     var random = new Random(user?.UserName?.GetHashCode() ?? 0);
     var bgColor = $"#{random.Next(0x1000000):X6}";
+    int unreadCount = 0;
+    var currentUser = await UserManager.GetUserAsync(User);
+    if (currentUser != null)
+    {
+        unreadCount = _context.Notifikacija
+            .Where(n => n.KorisnikId.Id == currentUser.Id && !n.Procitana)
+            .Count();
+    }
 }
+
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
@@ -21,6 +32,21 @@
             </a>
         </li>
     }
+    
+    <li class="nav-item d-flex align-items-center position-relative me-2">
+        <a class="nav-link text-dark position-relative" asp-area="" asp-controller="Notifikacija" asp-action="Index" title="Notifikacije">
+            <i class="bi bi-bell fs-5"></i>
+
+            @if (unreadCount > 0)
+            {
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                      style="font-size: 0.65rem;">
+                    @unreadCount
+                    <span class="visually-hidden">nepročitane notifikacije</span>
+                </span>
+            }
+        </a>
+    </li>
 
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

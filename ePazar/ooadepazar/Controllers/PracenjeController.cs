@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -22,6 +23,7 @@ namespace ooadepazar.Controllers
             _userManager = userManager;
         }
         
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Follow(string id) // id of user being followed
         {
@@ -51,6 +53,7 @@ namespace ooadepazar.Controllers
             return RedirectToAction("Index", "Korisnik", new { id });
         }
         
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Unfollow(string id)
         {
