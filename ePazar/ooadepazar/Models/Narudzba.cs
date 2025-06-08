@@ -10,7 +10,6 @@ public class Narudzba
     public int ID { get; set; }
     [Required]
     public DateTime DatumNarudzbe { get; set; }
-    [Required]
     public DateTime? DatumObrade { get; set; }
     [Required]  
     public Status Status { get; set; }  // Kreiran, UObradi, Dostavljen
