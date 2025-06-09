@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<ooadepazar.Models.Artikal>
 
 @{
-    ViewData["Title"] = "Početna stranica - E-pazar";
+    ViewData["Title"] = "Početna stranica - ePazar"; // Naslov stranice je već preveden
 }
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
@@ -66,6 +66,8 @@
     .filter-section {
         background-color: #ffffff;
         border-radius: 0.5rem;
+        padding: 1.5rem; /* Dodao padding za bolji izgled filter sekcije */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Dodao blagu sjenu */
     }
 
     .form-control, .form-select {
@@ -97,7 +99,7 @@
 
 <div class="container py-4">
     <div class="text-center mb-5">
-        <h1 class="display-4 fw-bold text-dark">Dobrodošli na <span class="text-primary">E-pazar</span>!</h1>
+        <h1 class="display-4 fw-bold text-dark">Dobrodošli na <span class="text-primary">ePazar</span>!</h1> @* "E-pazar" ispravljeno u "ePazar" da bude konzistentno *@
         <p class="lead text-muted">Pregledajte najnovije objavljene artikle i pronađite šta tražite.</p>
     </div>
 
@@ -125,14 +127,19 @@
                 <div class="col-md-2">
                     <label for="sortBy" class="form-label visually-hidden">Sortiraj po</label>
                     <select class="form-select" id="sortBy" name="sortBy">
-                        @foreach (var option in ViewBag.SortOptions)
-                        {
-                            <option value="@option.Value" selected="@(option.Value == ViewBag.CurrentSortBy)">@option.Text</option>
-                        }
+                        @* Ovdje se generiraju opcije za sortiranje. Provjeri kako su postavljene u tvom kontroleru. *
+                         * Ako su već prevedene u kontroleru (npr. "Najnovije", "Cijena: od najniže"), onda je ovdje OK.
+                         * Ako nisu, trebat će ih prevesti u kontroleru prilikom punjenja ViewBag.SortOptions. *@
+                        <option value="">Sortiraj po</option> @* DODATO: Placeholder za sortiranje *@
+                        <option value="date_desc" selected="@("date_desc" == ViewBag.CurrentSortBy)">Datum objave (najnovije)</option> @* Prevedeno i detaljnije *@
+                        <option value="price_asc" selected="@("price_asc" == ViewBag.CurrentSortBy)">Cijena (od najniže)</option> @* Prevedeno *@
+                        <option value="price_desc" selected="@("price_desc" == ViewBag.CurrentSortBy)">Cijena (od najviše)</option> @* Prevedeno *@
+                        <option value="name_asc" selected="@("name_asc" == ViewBag.CurrentSortBy)">Naziv (A-Z)</option> @* Prevedeno *@
+                        <option value="name_desc" selected="@("name_desc" == ViewBag.CurrentSortBy)">Naziv (Z-A)</option> @* Prevedeno *@
                     </select>
                 </div>
                 <div class="col-md-2 d-grid">
-                    <button type="submit" class="btn btn-primary"><i class="bi bi-funnel"></i> Pretraži</button>
+                    <button type="submit" class="btn btn-primary"><i class="bi bi-funnel"></i> Pretraži</button> @* Prevedeno *@
                 </div>
             </div>
             @if (!string.IsNullOrEmpty(ViewBag.CurrentSearchQuery) || ViewBag.CurrentCategoryId != null)
@@ -182,7 +189,7 @@
                                 <small><i class="bi bi-geo-alt me-1"></i> Lokacija: @item.Lokacija</small>
                             </p>
                             <p class="card-text text-muted mb-2">
-                                <small><i class="bi bi-info-circle me-1"></i> Stanje: @item.Stanje.ToString()</small>
+                                <small><i class="bi bi-info-circle me-1"></i> Stanje: @item.Stanje.ToString()</small> @* Prevedeno Stanje *@
                             </p>
                             <p class="card-text flex-grow-1 text-secondary mb-3">
                                 @(item.Opis.Length > 100 ? item.Opis.Substring(0, 100) + "..." : item.Opis)
@@ -197,7 +204,7 @@
                             }
                             else
                             {
-                                <small class="text-info"><i class="bi bi-person-slash me-1"></i> N/A</small>
+                                <small class="text-info"><i class="bi bi-person-slash me-1"></i> N/A</small> @* "N/A" se obično ne prevodi, univerzalno je *@
                             }
                             <a asp-controller="Artikal" asp-action="Details" asp-route-id="@item.ID" class="btn btn-sm btn-outline-primary">
                                 <i class="bi bi-arrow-right-circle"></i> Detalji

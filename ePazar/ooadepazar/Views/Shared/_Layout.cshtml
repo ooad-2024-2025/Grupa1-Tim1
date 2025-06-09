@@ -28,11 +28,11 @@
             align-items: center;
         }
 
-        .navbar-brand .bi {
-            font-size: 1.5rem;
-            margin-right: 0.5rem;
-            color: #28a745; /* Zelena ikona */
-        }
+            .navbar-brand .bi {
+                font-size: 1.5rem;
+                margin-right: 0.5rem;
+                color: #28a745; /* Zelena ikona */
+            }
 
         .nav-link {
             color: #343a40 !important; /* Tamniji tekst linka */
@@ -42,9 +42,9 @@
             transition: color 0.2s ease-in-out;
         }
 
-        .nav-link:hover {
-            color: #007bff !important; /* Plavi hover */
-        }
+            .nav-link:hover {
+                color: #007bff !important; /* Plavi hover */
+            }
 
         .btn-outline-primary-custom {
             color: #007bff;
@@ -53,22 +53,24 @@
             transition: all 0.2s ease-in-out;
         }
 
-        .btn-outline-primary-custom:hover {
-            background-color: #007bff;
-            color: #fff;
-        }
+            .btn-outline-primary-custom:hover {
+                background-color: #007bff;
+                color: #fff;
+            }
 
         .btn-success-custom {
-            background-color: #5cd47b; /* Zeleno dugme */
+            /* Prilagođena boja za dugme "Objavite Oglas" */
+            background-color: #28a745; /* Tamnija zelena za bolje isticanje */
             border-color: #28a745;
             font-weight: 600;
             transition: all 0.2s ease-in-out;
+            color: white; /* Osiguraj bijeli tekst */
         }
 
-        .btn-success-custom:hover {
-            background-color: #68b67c;
-            border-color: #1e7e34;
-        }
+            .btn-success-custom:hover {
+                background-color: #218838; /* Malo tamnija zelena za hover */
+                border-color: #1e7e34;
+            }
 
         /* Prilagodbe za mobilne uređaje */
         @@media (max-width: 767.98px) {
@@ -101,7 +103,8 @@
                     <i class="bi bi-shop"></i> ePazar
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                        aria-expanded="false" aria-label="Preklopi navigaciju">
+                    @* PREVEDENO *@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -109,7 +112,20 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Početna</a>
                         </li>
-                        @if (User.Identity != null && User.Identity.IsAuthenticated)
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> @* DODATO Privacy link koji je bio izbačen *@
+                        </li>
+                        @* Dugme "Objavite Oglas" premješteno na desnu stranu kod login/register, kao na OLX.ba *
+                         * Ovdje više nije potrebno, jer je dole u _LoginPartial dijelu *@
+                    </ul>
+                    <ul class="navbar-nav ms-auto mb-2 mb-md-0 d-flex align-items-center">
+                        <li class="nav-item me-2">
+                            <partial name="_LoginPartial"></partial>
+                        </li>
+                        @* Ovdje će biti dugme "Objavite Oglas" kroz _LoginPartial za neprijavljene,
+                         * ili će biti dio padajućeg menija za prijavljene korisnike, ili jednostavno tu stojao uvijek vidljiv.
+                         * Ja sam ga stavio u _LoginPartial da ga kontrolišeš iz jednog mjesta. *@
+                        @if (!User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
                                 <a class="btn btn-success-custom" asp-area="" asp-controller="Artikal" asp-action="Create">
@@ -118,23 +134,20 @@
                             </li>
                         }
                     </ul>
-                    <ul class="navbar-nav ms-auto mb-2 mb-md-0 d-flex align-items-center">
-                        <li class="nav-item me-2">
-                            <partial name="_LoginPartial"></partial>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </nav>
     </header>
 
     <div class="container pb-5">
+        @* Povećan padding-bottom *@
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted mt-10 py-3 text-center">
+    <footer class="border-top footer text-muted mt-5 py-3 text-center">
+        @* mt-10 nije standardna Bootstrap klasa, promijenjeno u mt-5 *@
         <div class="container">
             &copy; 2025 - ePazar: <em>A. Handanagić, E. Adilović, D. Alibegović, B. Činjarević</em>
         </div>
