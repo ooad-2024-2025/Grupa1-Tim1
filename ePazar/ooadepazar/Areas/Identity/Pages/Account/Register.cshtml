@@ -62,34 +62,7 @@
 
                     <hr class="my-4" />
 
-                    <section class="text-center">
-                        <h3 class="h5 mb-3">Ili se registrujte putem drugih servisa.</h3>
-                        @{
-                            if ((Model.ExternalLogins?.Count ?? 0) == 0)
-                            {
-                                <div>
-                                    <p>
-                                        Nema konfigurisanih vanjskih servisa za autentifikaciju. Pogledajte ovaj
-                                        <a href="https://go.microsoft.com/fwlink/?LinkID=532715" target="_blank" rel="noopener noreferrer">članak</a>
-                                        o postavljanju podrške za prijavu putem vanjskih servisa u ovoj ASP.NET aplikaciji.
-                                    </p>
-                                </div>
-                            }
-                            else
-                            {
-                                <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                                    <div>
-                                        <p>
-                                            @foreach (var provider in Model.ExternalLogins!)
-                                            {
-                                                <button type="submit" class="btn btn-secondary m-1" name="provider" value="@provider.Name" title="Prijavite se koristeći svoj @provider.DisplayName račun">@provider.DisplayName</button>
-                                            }
-                                        </p>
-                                    </div>
-                                </form>
-                            }
-                        }
-                    </section>
+                    
                 </div>
             </div>
         </div>
