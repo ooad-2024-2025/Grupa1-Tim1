@@ -86,6 +86,7 @@ namespace ooadepazar.Controllers
                 Korisnik = user,
                 Artikal = artikal,
                 KurirskaSluzba = null,
+                Lokacija = artikal.Lokacija
             };
 
             _context.Narudzba.Add(narudzba);
