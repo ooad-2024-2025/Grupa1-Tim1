@@ -66,8 +66,6 @@
     .filter-section {
         background-color: #ffffff;
         border-radius: 0.5rem;
-        padding: 1.5rem; /* Dodao padding za bolji izgled filter sekcije */
-        box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Dodao blagu sjenu */
     }
 
     .form-control, .form-select {
@@ -131,7 +129,7 @@
                          * Ako su već prevedene u kontroleru (npr. "Najnovije", "Cijena: od najniže"), onda je ovdje OK.
                          * Ako nisu, trebat će ih prevesti u kontroleru prilikom punjenja ViewBag.SortOptions. *@
                         <option value="">Sortiraj po</option> @* DODATO: Placeholder za sortiranje *@
-                        <option value="date_desc" selected="@("date_desc" == ViewBag.CurrentSortBy)">Datum objave (najnovije)</option> @* Prevedeno i detaljnije *@
+                        <option value="date_desc" selected="@("date_desc" == ViewBag.CurrentSortBy)">Najnovije</option> @* Prevedeno i detaljnije *@
                         <option value="price_asc" selected="@("price_asc" == ViewBag.CurrentSortBy)">Cijena (od najniže)</option> @* Prevedeno *@
                         <option value="price_desc" selected="@("price_desc" == ViewBag.CurrentSortBy)">Cijena (od najviše)</option> @* Prevedeno *@
                         <option value="name_asc" selected="@("name_asc" == ViewBag.CurrentSortBy)">Naziv (A-Z)</option> @* Prevedeno *@

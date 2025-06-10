@@ -24,6 +24,8 @@ namespace ooadepazar.Controllers
         }
 
         // GET: Narudzba
+        [Authorize(Roles = "KurirskaSluzba, Admin")]
+        
         public async Task<IActionResult> Index()
         {
             var narudzbe = await _context.Narudzba
