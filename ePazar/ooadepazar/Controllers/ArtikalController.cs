@@ -66,13 +66,14 @@ namespace ooadepazar.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<IActionResult> Create([Bind("ID,Naziv,Stanje,Opis,Cijena,Lokacija,DatumObjave,DatumAzuriranja,Kategorija,SlikaUrl")] Artikal artikal)
+        public async Task<IActionResult> Create([Bind("ID,Naziv,Stanje,Opis,Cijena,Lokacija,DatumObjave,DatumAzuriranja,Kategorija,SlikaUrl,Narucen")] Artikal artikal)
         {
             ViewBag.StanjeOptions = new SelectList(Enum.GetValues(typeof(Stanje)));
             ViewBag.KategorijaOptions = new SelectList(Enum.GetValues(typeof(Kategorija)));
 
             artikal.DatumObjave = DateTime.Now;
             artikal.DatumAzuriranja = DateTime.Now;
+            artikal.Narucen = false;
 
             if (ModelState.IsValid)
             {
@@ -142,7 +143,7 @@ namespace ooadepazar.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Naziv,Stanje,Opis,Cijena,Lokacija,DatumObjave,DatumAzuriranja,Kategorija,SlikaUrl")] Artikal artikal)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Naziv,Stanje,Opis,Cijena,Lokacija,DatumObjave,DatumAzuriranja,Kategorija,SlikaUrl,Narucen")] Artikal artikal)
         {
             if (id != artikal.ID)
             {
@@ -163,6 +164,7 @@ namespace ooadepazar.Controllers
                     existingArtikal.Lokacija = artikal.Lokacija;
                     existingArtikal.Kategorija = artikal.Kategorija;
                     existingArtikal.SlikaUrl = artikal.SlikaUrl;
+                    existingArtikal.Narucen = artikal.Narucen;
                     // Do NOT update DatumObjave
                     existingArtikal.DatumAzuriranja = DateTime.Now; // Set to current date/time
 
