@@ -93,17 +93,22 @@ namespace ooadepazar.Controllers
                 {
                     var notifikacija = new Notifikacija
                     {
-                        Sadrzaj = $"{currentUser.Ime} {currentUser.Prezime} je objavio novi artikal: <a href='/Artikal/Details/{artikal.ID}'>{artikal.Naziv}</a>",
+                        Sadrzaj = $"<a href='/Korisnik/{currentUser.Id}'>{currentUser.Ime} {currentUser.Prezime}</a> je objavio novi artikal: <a href='/Artikal/Details/{artikal.ID}'>{artikal.Naziv}</a>",
                         DatumObjave = DateTime.Now,
                         Procitana = false,
                         KorisnikId = follower
                     };
                     _context.Notifikacija.Add(notifikacija);
-                    
+
+                    var textMaila = $"Pozdrav {follower.Ime},\n\n" +
+                                    $"{currentUser.Ime} {currentUser.Prezime} je objavio novi artikal: {artikal.Naziv}\n" +
+                                    $"Detalje možete pogledati ovdje: (ubaciti ovdje link)\n\n" +
+                                    "Hvala što koristite ePazar!";
+
                     var followerUser = await _userManager.FindByIdAsync(follower.Id);
                     if (followerUser != null && !string.IsNullOrEmpty(followerUser.Email))
                     {
-                        await _mailService.SendEmailAsync(followerUser.Email, notifikacija.Sadrzaj);
+                        await _mailService.SendEmailAsync(followerUser.Email, textMaila);
                     }
                 }
 
