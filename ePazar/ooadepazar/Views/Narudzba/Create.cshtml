@@ -10,18 +10,29 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
+        <form asp-action="Create" asp-route-id="@ViewBag.SelectedArtikalId" method="post">
+            <div class="form-group">
+                <label asp-for="DatumNarudzbe" class="control-label"></label>
+                <input asp-for="DatumNarudzbe" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" readonly />
+            </div>
 
-        <form asp-action="Create" method="post">
-            <input asp-for="DatumNarudzbe" class="form-control" />
-            <input asp-for="DatumObrade" class="form-control" />
+            <div class="form-group">
+                <label asp-for="Lokacija" class="control-label"></label>
+                <input asp-for="Lokacija" class="form-control" value="@ViewBag.Lokacija" />
+            </div>
 
-            <select asp-for="Status" class="form-control"
-                    asp-items="Html.GetEnumSelectList<ooadepazar.Models.Status>()"></select>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <select asp-for="Status" class="form-control"
+                        asp-items="Html.GetEnumSelectList<ooadepazar.Models.Status>()"></select>
+            </div>
 
-            <!-- Hidden input for Artikal ID from URL -->
+            <!-- Hidden Artikal ID -->
             <input type="hidden" name="artikalId" value="@ViewBag.SelectedArtikalId" />
 
-            <input type="submit" value="Create" class="btn btn-primary" />
+            <div class="form-group mt-3">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
         </form>
     </div>
 </div>

@@ -55,46 +55,33 @@ namespace ooadepazar.Controllers
             return View(narudzba);
         }
 
-        [Authorize(Roles = "Admin, Korisnik")]
-        public IActionResult Create(int id)
+        [Authorize]
+        public async Task<IActionResult> Create(int id)
         {
             ViewBag.SelectedArtikalId = id;
+            var user = await _userManager.GetUserAsync(User);
+            ViewBag.Lokacija = user?.Adresa ?? "";
             return View();
         }
 
         // POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin, Korisnik")]
-        public async Task<IActionResult> CreateNarudzba(int artikalId)
+        [Authorize]
+        [HttpPost]
+        public IActionResult Create(int id, Narudzba narudzba)
         {
-            var user = await _userManager.GetUserAsync(User);
-            if (user == null)
-            {
-                return Unauthorized();
-            }
-
-            var artikal = await _context.Artikal.FindAsync(artikalId);
+            var artikal = _context.Artikal.FirstOrDefault(a => a.ID == id);
             if (artikal == null)
-            {
-                return NotFound("Artikal nije pronađen.");
-            }
+                return NotFound();
 
-            var narudzba = new Narudzba
-            {
-                DatumNarudzbe = DateTime.Now,
-                DatumObrade = null,
-                Status = Status.Kreiran,
-                Korisnik = user,
-                Artikal = artikal,
-                KurirskaSluzba = null,
-                Lokacija = artikal.Lokacija
-            };
+            narudzba.Artikal = artikal;
+            narudzba.DatumNarudzbe = DateTime.Now;
 
             _context.Narudzba.Add(narudzba);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
 
-            return RedirectToAction("Index", "Narudzba"); // Or wherever you want to redirect
+            return RedirectToAction("Index");
         }
 
 
