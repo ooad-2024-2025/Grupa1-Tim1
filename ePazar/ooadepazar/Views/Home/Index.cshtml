@@ -115,7 +115,6 @@
                 <div class="col-md-3">
                     <label for="categoryId" class="form-label visually-hidden">Kategorija</label>
                     <select class="form-select" id="categoryId" name="categoryId">
-                        <option value="">Sve kategorije</option>
                         @foreach (var option in ViewBag.KategorijaOptions)
                         {
                             <option value="@option.Value" selected="@(option.Value == ViewBag.CurrentCategoryId?.ToString())">@option.Text</option>
