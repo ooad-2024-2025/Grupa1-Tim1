@@ -93,7 +93,7 @@ namespace ooadepazar.Controllers
                 {
                     var notifikacija = new Notifikacija
                     {
-                        Sadrzaj = $"{currentUser.Ime + " " + currentUser.Prezime} je objavio novi artikal: {artikal.Naziv}",
+                        Sadrzaj = $"{currentUser.Ime} {currentUser.Prezime} je objavio novi artikal: <a href='/Artikal/Details/{artikal.ID}'>{artikal.Naziv}</a>",
                         DatumObjave = DateTime.Now,
                         Procitana = false,
                         KorisnikId = follower
