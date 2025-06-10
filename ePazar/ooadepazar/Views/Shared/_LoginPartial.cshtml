@@ -74,8 +74,11 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                 <li>
-                    <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index">
-                        <i class="bi bi-person me-2"></i> Profil
+                    <a class="dropdown-item d-flex flex-column align-items-start" asp-area="Identity" asp-page="/Account/Manage/Index">
+                        <div>
+                            <i class="bi bi-person me-2"></i> Profil
+                        </div>
+                        <small class="text-muted ms-4">@user?.Email</small>
                     </a>
                 </li>
                 <li><hr class="dropdown-divider"></li> @* Separator *@
