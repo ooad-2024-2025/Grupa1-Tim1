@@ -125,7 +125,7 @@
                         @* Ovdje će biti dugme "Objavite Oglas" kroz _LoginPartial za neprijavljene,
                          * ili će biti dio padajućeg menija za prijavljene korisnike, ili jednostavno tu stojao uvijek vidljiv.
                          * Ja sam ga stavio u _LoginPartial da ga kontrolišeš iz jednog mjesta. *@
-                        @if (!User.Identity.IsAuthenticated)
+                        @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
                                 <a class="btn btn-success-custom" asp-area="" asp-controller="Artikal" asp-action="Create">
