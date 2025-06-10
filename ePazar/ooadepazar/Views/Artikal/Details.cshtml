@@ -65,7 +65,12 @@
                             <a asp-action="Edit" asp-route-id="@Model?.ID" class="btn btn-primary">Edit</a>
                         }
                         <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Back to List</a>
-                        <a class="btn btn-success" asp-controller="Narudzba" asp-route-id="@Model.ID" asp-action="Create">Naruči ovaj artikal</a>
+                        @if (!isOwner)
+                        {
+                            <form asp-controller="Narudzba" asp-action="CreateNarudzba" method="post" asp-route-artikalId="@Model?.ID" style="display:inline">
+                                <button type="submit" class="btn btn-success">Naruči ovaj artikal</button>
+                            </form>
+                        }
                         @if (isOwner || isAdmin)
                         {
                             <a asp-action="Delete" asp-route-id="@Model.ID" class="btn btn-danger">Delete</a>
