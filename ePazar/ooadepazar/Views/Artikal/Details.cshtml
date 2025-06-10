@@ -62,15 +62,18 @@
                     <div class="mt-3">
                         @if (isOwner || isAdmin)
                         {
-                            <a asp-action="Edit" asp-route-id="@Model?.ID" class="btn btn-primary">Edit</a>
+                            <a asp-action="Edit" asp-route-id="@Model?.ID" class="btn btn-primary">Uredi</a>
                         }
-                        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Back to List</a>
-                        <form asp-controller="Narudzba" asp-action="CreateNarudzba" method="post" asp-route-artikalId="@Model?.ID" style="display:inline">
-                            <button type="submit" class="btn btn-success">Naruči ovaj artikal</button>
-                        </form>
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Početna</a>
+                        @if (!isOwner)
+                        {
+                            <form asp-controller="Narudzba" asp-action="CreateNarudzba" method="post" asp-route-artikalId="@Model?.ID" style="display:inline">
+                                <button type="submit" class="btn btn-success">Naruči ovaj artikal</button>
+                            </form>
+                        }
                         @if (isOwner || isAdmin)
                         {
-                            <a asp-action="Delete" asp-route-id="@Model.ID" class="btn btn-danger">Delete</a>
+                            <a asp-action="Delete" asp-route-id="@Model.ID" class="btn btn-danger">Obriši</a>
                         }
                         
                         @if (User.Identity?.IsAuthenticated == true)
