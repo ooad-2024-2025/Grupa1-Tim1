@@ -182,7 +182,7 @@ namespace ooadepazar.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Details", "Artikal", new { id = artikal.ID });
             }
 
             ViewBag.StanjeOptions = new SelectList(Enum.GetValues(typeof(Stanje)));
