@@ -48,6 +48,16 @@ namespace ooadepazar.Controllers
             };
 
             _context.Pracenje.Add(follow);
+
+            var notifikacija = new Notifikacija
+            {
+                Sadrzaj = $"<a href='/Korisnik/{currentUser.Id}'>{currentUser.Ime} {currentUser.Prezime}</a> vas je zapratio.",
+                DatumObjave = DateTime.Now,
+                Procitana = false,
+                KorisnikId = praceni
+            };
+            _context.Notifikacija.Add(notifikacija);
+
             await _context.SaveChangesAsync();
 
             return RedirectToAction("Index", "Korisnik", new { id });
