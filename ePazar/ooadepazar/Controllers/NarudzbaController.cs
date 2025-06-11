@@ -16,11 +16,12 @@ namespace ooadepazar.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IMailService _mailService;
 
-        public NarudzbaController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
-        {
+        public NarudzbaController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, IMailService mailService) {
             _context = context;
             _userManager = userManager;
+            _mailService = mailService;
         }
 
         // GET: Narudzba
@@ -134,6 +135,45 @@ namespace ooadepazar.Controllers
             ViewData["KorisnikID"] = new SelectList(_context.Users, "Id", "Ime", korisnikId);
             ViewData["KurirskaSluzbaID"] = new SelectList(_context.Users, "Id", "Ime", kurirskaSluzbaId);
             return View(narudzba);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "KurirskaSluzba, Admin")]
+        public async Task<IActionResult> PromijeniStatus(int id, string noviStatus) {
+            var narudzba = await _context.Narudzba
+                .Include(n => n.Korisnik)
+                .Include(n => n.Artikal)
+                .FirstOrDefaultAsync(n => n.ID == id);
+
+            if (narudzba == null)
+                return NotFound();
+
+            // Parse noviStatus to enum
+            if (!Enum.TryParse<Status>(noviStatus, out var status))
+                return BadRequest();
+
+            narudzba.Status = status;
+
+            // Set DatumObrade if finished
+            if (status == Status.Dostavljen)
+                narudzba.DatumObrade = DateTime.Now;
+
+            await _context.SaveChangesAsync();
+
+            // Send email notification
+            if (narudzba.Korisnik != null) {
+                string subject = "Status vaše narudžbe je promijenjen";
+                string message = status switch {
+                    Status.UObradi => $"Vaša narudžba za artikal \"{narudzba.Artikal?.Naziv}\" je sada u obradi.",
+                    Status.Dostavljen => $"Vaša narudžba za artikal \"{narudzba.Artikal?.Naziv}\" je završena i označena kao dostavljena.",
+                    _ => $"Status vaše narudžbe je promijenjen u: {status}."
+                };
+                await _mailService.SendEmailAsync(narudzba.Korisnik.EmailAdresa, message);
+
+            }
+
+            return RedirectToAction(nameof(Index));
         }
 
 
