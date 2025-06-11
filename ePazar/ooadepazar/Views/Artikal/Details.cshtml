@@ -71,6 +71,7 @@
                                 <button type="submit" class="btn btn-success">Naruči ovaj artikal</button>
                             </form>
                         }
+                        
                         @if (isOwner || isAdmin)
                         {
                             <a asp-action="Delete" asp-route-id="@Model.ID" class="btn btn-danger">Obriši</a>
