@@ -3,12 +3,6 @@
 @{
     var artikal = Model.Artikal;
     var korisnik = Model.Korisnik;
-    string statusDisplay = Model.Status switch {
-        ooadepazar.Models.Status.Kreiran => "Kreiran",
-        ooadepazar.Models.Status.UObradi => "U obradi",
-        ooadepazar.Models.Status.Dostavljen => "Dostavljen",
-        _ => Model.Status.ToString()
-    };
 }
 
 <!-- Order Information -->
@@ -22,11 +16,19 @@
             <dd class="col-sm-8">@Model.DatumNarudzbe.ToString("g")</dd>
             <dt class="col-sm-4">Status</dt>
             <dd class="col-sm-8">
+                @{
+                    string statusDisplay = Model.Status switch {
+                        ooadepazar.Models.Status.Kreiran => "Kreiran",
+                        ooadepazar.Models.Status.UObradi => "U obradi",
+                        ooadepazar.Models.Status.Dostavljen => "Dostavljen",
+                        _ => Model.Status.ToString()
+                    };
+                }
                 <span class="badge
                     @(Model.Status == ooadepazar.Models.Status.Kreiran ? "bg-warning text-dark" :
                       Model.Status == ooadepazar.Models.Status.UObradi ? "bg-info text-dark" :
                       "bg-success")" style="font-size:1rem;">
-                    @Model.Status
+                    @statusDisplay
                 </span>
             </dd>
             <dt class="col-sm-4">Datum obrade</dt>
