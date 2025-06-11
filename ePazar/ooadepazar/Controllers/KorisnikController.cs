@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using ooadepazar.Data;
 using ooadepazar.Models;
 using ooadepazar.Models.ViewModels;
+using static NuGet.Packaging.PackagingConstants;
 
 namespace ooadepazar.Controllers;
 
@@ -33,10 +34,17 @@ public class KorisnikController : Controller
             .Where(a => a.Korisnik.Id == id)
             .ToListAsync();
 
+        var narudzbe = await _context.Narudzba
+            .Include(n => n.Artikal) // u?itaj povezani artikal
+            .Where(n => n.Korisnik.Id == user.Id)
+            .OrderByDescending(n => n.DatumObrade)
+            .ToListAsync();
+
         var viewModel = new KorisnikArtikliViewModel
         {
             Korisnik = user,
-            Artikli = artikli
+            Artikli = artikli,
+            Narudzbe = narudzbe
         };
 
         return View(viewModel);
