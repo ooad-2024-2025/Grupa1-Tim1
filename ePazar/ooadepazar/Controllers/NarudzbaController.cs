@@ -68,7 +68,6 @@ namespace ooadepazar.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        [HttpPost]
         public IActionResult Create(int id, Narudzba narudzba)
         {
             var artikal = _context.Artikal.FirstOrDefault(a => a.ID == id);
