@@ -48,9 +48,19 @@
         </dd>
     </dl>
     
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="ID" />
-        <input type="submit" value="Obriši" class="btn btn-danger" />
+    @if (!Model.Narucen)
+    {
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="ID" />
+            <input type="submit" value="Obriši" class="btn btn-danger" />
+            <a asp-controller="Artikal" asp-action="Details" asp-route-id="@Model.ID" class="btn btn-secondary ms-2">Nazad na detalje</a>
+        </form>
+    }
+    else
+    {
+        <div class="alert alert-warning mt-3">
+            Artikal je već naručen i ne može se obrisati.
+        </div>
         <a asp-controller="Artikal" asp-action="Details" asp-route-id="@Model.ID" class="btn btn-secondary ms-2">Nazad na detalje</a>
-    </form>
+    }
 </div>
