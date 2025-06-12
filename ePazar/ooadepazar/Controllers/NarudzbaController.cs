@@ -165,7 +165,7 @@ namespace ooadepazar.Controllers
 
             await _context.SaveChangesAsync();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
         }
 
         // GET: Narudzba/Edit/5
