@@ -2,6 +2,25 @@
 @using ooadepazar.Models
 
 @{
+    var kurirskeSluzbe = ViewBag.KurirskeSluzbe as List<SelectListItem>;
+    var odabranaKurirskaSluzba = ViewBag.OdabranaKurirskaSluzba as string;
+}
+<div class="mb-4">
+    <label for="KurirskaSluzbaId" class="form-label">Izaberite kurirsku službu</label>
+    <select class="form-select" name="KurirskaSluzbaId" id="KurirskaSluzbaId" required>
+        <option value="" disabled selected>Odaberite kurirsku službu</option>
+        @if (kurirskeSluzbe != null)
+        {
+            foreach (var kurir in kurirskeSluzbe)
+            {
+                <option value="@kurir.Value">@kurir.Text</option>
+            }
+        }
+    </select>
+</div>
+
+
+@{
     ViewData["Title"] = "Moje narudžbe";
     var kreirane = Model.Where(n => n.Status == Status.Kreiran).OrderBy(n => n.DatumNarudzbe).ToList();
     var uObradi = Model.Where(n => n.Status == Status.UObradi).OrderBy(n => n.DatumNarudzbe).ToList();
