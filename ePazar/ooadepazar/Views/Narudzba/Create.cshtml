@@ -1,46 +1,34 @@
 ﻿@model ooadepazar.Models.Narudzba
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Potvrdi narudžbu";
+    var user = ViewBag.Korisnik as ooadepazar.Models.ApplicationUser;
 }
 
-<h1>Create</h1>
+<h2>Potvrdi narudžbu</h2>
 
-<h4>Narudzba</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create" asp-route-id="@ViewBag.SelectedArtikalId" method="post">
-            <div class="form-group">
-                <label asp-for="DatumNarudzbe" class="control-label"></label>
-                <input asp-for="DatumNarudzbe" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" readonly />
-            </div>
+<form asp-action="Create" method="post">
+    <input type="hidden" name="id" value="@ViewBag.ArtikalId" />
 
-            <div class="form-group">
-                <label asp-for="Lokacija" class="control-label"></label>
-                <input asp-for="Lokacija" class="form-control" value="@ViewBag.Lokacija" />
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                <select asp-for="Status" class="form-control"
-                        asp-items="Html.GetEnumSelectList<ooadepazar.Models.Status>()"></select>
-            </div>
-
-            <!-- Hidden Artikal ID -->
-            <input type="hidden" name="artikalId" value="@ViewBag.SelectedArtikalId" />
-
-            <div class="form-group mt-3">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+    <div class="form-group">
+        <label>Ime</label>
+        <input type="text" class="form-control" value="@user?.Ime" readonly />
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <div class="form-group">
+        <label>Prezime</label>
+        <input type="text" class="form-control" value="@user?.Prezime" readonly />
+    </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    <div class="form-group">
+        <label>Broj telefona</label>
+        <input type="text" class="form-control" value="@user?.BrojTelefona" readonly />
+    </div>
+
+    <div class="form-group">
+        <label>Lokacija isporuke</label>
+        <input type="text" name="Lokacija" class="form-control" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Potvrdi narudžbu</button>
+</form>

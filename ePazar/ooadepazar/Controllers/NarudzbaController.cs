@@ -56,16 +56,38 @@ namespace ooadepazar.Controllers
             return View(narudzba);
         }
 
+        /*
         [Authorize]
         public async Task<IActionResult> Create(int id)
         {
             ViewBag.SelectedArtikalId = id;
             var user = await _userManager.GetUserAsync(User);
+            ViewBag.Ime = user?.Ime ?? "";
+            ViewBag.Prezime = user?.Prezime ?? "";
+            ViewBag.Telefon = user?.BrojTelefona ?? "";
             ViewBag.Lokacija = user?.Adresa ?? "";
             return View();
         }
+        */
+
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> Create(int id)
+        {
+            var artikal = await _context.Artikal.FirstOrDefaultAsync(a => a.ID == id);
+            if (artikal == null) return NotFound();
+
+            var korisnik = await _userManager.GetUserAsync(User);
+            if (korisnik == null) return Unauthorized();
+
+            ViewBag.ArtikalId = id;
+            ViewBag.Korisnik = korisnik;
+            return View();
+        }
+
 
         // POST
+        /*
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
@@ -76,15 +98,43 @@ namespace ooadepazar.Controllers
             if (artikal == null)
                 return NotFound();
 
-            narudzba.Artikal = artikal;
             narudzba.DatumNarudzbe = DateTime.Now;
+            narudzba.Status = Status.Kreiran; // Postavi početni status
+            narudzba.Artikal = artikal;
+            narudzba.Korisnik = _userManager.GetUserAsync(User).Result; // Postavi korisnika na trenutnog prijavljenog
 
             _context.Narudzba.Add(narudzba);
             _context.SaveChanges();
 
             return RedirectToAction("Index");
         }
+        */
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize]
+        public async Task<IActionResult> Create(int id, string Lokacija)
+        {
+            var korisnik = await _userManager.GetUserAsync(User);
+            if (korisnik == null) return Unauthorized();
+
+            var artikal = await _context.Artikal.FirstOrDefaultAsync(a => a.ID == id);
+            if (artikal == null) return NotFound();
+
+            var narudzba = new Narudzba
+            {
+                DatumNarudzbe = DateTime.Now,
+                Status = Status.Kreiran,
+                Lokacija = Lokacija,
+                Artikal = artikal,
+                Korisnik = korisnik
+            };
+
+            _context.Narudzba.Add(narudzba);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Index");
+        }
 
         // GET: Narudzba/Edit/5
         public async Task<IActionResult> Edit(int? id)
