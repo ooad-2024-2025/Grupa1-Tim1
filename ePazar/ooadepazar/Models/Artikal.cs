@@ -8,36 +8,17 @@ public class Artikal
 {
     [Key]
     public int ID { get; set; }
-<<<<<<< HEAD
-    [Required(ErrorMessage = "Naziv je obavezan.")]
-=======
-    [Required(ErrorMessage = "Naziv je obavezan")]
->>>>>>> fce75781b7da150a35a678f653e355b58545cb21
+    [Required]
     public string Naziv { get; set; }
     [Required(ErrorMessage = "Izaberite Stanje")]
     public Stanje Stanje { get; set; }
-<<<<<<< HEAD
-    [Required(ErrorMessage = "Opis je obavezan.")]
+    [Required]
     public string Opis { get; set; }
-
-    [Required(ErrorMessage = "Cijena je obavezna.")]
-    [Range(0, 1000000, ErrorMessage = "Cijena mora biti između 0 i 1,000,000.")]
+    [Required]
     public float Cijena { get; set; }
     public String? SlikaUrl { get; set; }
     public Kategorija Kategorija { get; set; }
-
-    [Required(ErrorMessage = "Lokacija je obavezna.")]
-    [StringLength(20, ErrorMessage = "Lokacija može imati najviše 20 karaktera.")]
-    [RegularExpression("^[a-zA-Z0-9čćžšđČĆŽŠĐ \\-]{1,20}$", ErrorMessage = "Dozvoljena su slova (čćžšđ), brojevi, razmaci i crtice.")]
-=======
-    [Required(ErrorMessage = "Opis je obavezan")]
-    public string Opis { get; set; }
-    [Required(ErrorMessage = "Cijena je obavezna")]
-    public float Cijena { get; set; }
-    public String? SlikaUrl { get; set; }
-    public Kategorija Kategorija { get; set; }
-    [Required(ErrorMessage = "Lokacija je obavezna.")]
->>>>>>> fce75781b7da150a35a678f653e355b58545cb21
+    [Required]
     public string Lokacija { get; set; }
 
     public DateTime DatumObjave { get; set; }
