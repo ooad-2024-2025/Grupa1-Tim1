@@ -120,7 +120,9 @@ namespace ooadepazar.Controllers
             var korisnik = await _userManager.GetUserAsync(User);
             if (korisnik == null) return Unauthorized();
 
-            var artikal = await _context.Artikal.FirstOrDefaultAsync(a => a.ID == id);
+            var artikal = await _context.Artikal
+                .Include(a => a.Korisnik)
+                .FirstOrDefaultAsync(a => a.ID == id);
             if (artikal == null) return NotFound();
 
             var narudzba = new Narudzba
@@ -135,6 +137,20 @@ namespace ooadepazar.Controllers
             artikal.Narucen = true;
 
             _context.Narudzba.Add(narudzba);
+
+            // Kreiraj notifikaciju za vlasnika artikla
+            if (artikal.Korisnik != null)
+            {
+                var notifikacija = new Notifikacija
+                {
+                    Sadrzaj = $"<a href='/Korisnik/{korisnik.Id}'>{korisnik.Ime} {korisnik.Prezime}</a> je naručio vaš artikal \"{artikal.Naziv}\".",
+                    DatumObjave = DateTime.Now,
+                    Procitana = false,
+                    KorisnikId = artikal.Korisnik // vlasnik artikla
+                };
+                _context.Notifikacija.Add(notifikacija);
+            }
+
             await _context.SaveChangesAsync();
 
             return RedirectToAction("Index");
