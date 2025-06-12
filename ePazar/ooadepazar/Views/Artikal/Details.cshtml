@@ -65,8 +65,7 @@
                             <a asp-action="Edit" asp-route-id="@Model?.ID" class="btn btn-primary">Uredi</a>
                         }
                         <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Početna</a>
-                        @if (!isOwner)
-                        {
+                        @if (!isOwner && User.Identity?.IsAuthenticated == true) {
                             <a asp-controller="Narudzba" asp-action="Create" asp-route-id="@Model?.ID" class="btn btn-success">
                                 Naruči ovaj artikal
                             </a>
