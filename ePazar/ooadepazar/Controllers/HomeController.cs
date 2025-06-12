@@ -59,8 +59,11 @@ public class HomeController : Controller
         // --- Fetch, Filter, and Sort Articles ---
 
         // Start with all articles and eager load the Korisnik (user) data
-        var artikli = _context.Artikal.Include(a => a.Korisnik).AsQueryable();
-
+        var artikli = _context.Artikal
+            .Include(a => a.Korisnik)
+            .Where(a => a.Narucen == false)
+            .AsQueryable();
+        
         // Apply Search Filtering
         if (!string.IsNullOrEmpty(searchQuery))
         {

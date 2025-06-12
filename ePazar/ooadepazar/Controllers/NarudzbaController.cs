@@ -75,6 +75,8 @@ namespace ooadepazar.Controllers
             if (artikal == null)
                 return NotFound();
 
+            artikal.Narucen = true;
+
             narudzba.Artikal = artikal;
             narudzba.DatumNarudzbe = DateTime.Now;
 
