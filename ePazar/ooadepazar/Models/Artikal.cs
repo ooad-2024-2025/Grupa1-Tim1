@@ -8,17 +8,17 @@ public class Artikal
 {
     [Key]
     public int ID { get; set; }
-    [Required]
+    [Required(ErrorMessage = "Naziv je obavezan")]
     public string Naziv { get; set; }
-    [Required]
+    [Required(ErrorMessage = "Izaberite Stanje")]
     public Stanje Stanje { get; set; }
-    [Required]
+    [Required(ErrorMessage = "Opis je obavezan")]
     public string Opis { get; set; }
-    [Required]
+    [Required(ErrorMessage = "Cijena je obavezna")]
     public float Cijena { get; set; }
     public String? SlikaUrl { get; set; }
     public Kategorija Kategorija { get; set; }
-    [Required]
+    [Required(ErrorMessage = "Lokacija je obavezna.")]
     public string Lokacija { get; set; }
     public DateTime DatumObjave { get; set; }
     public DateTime DatumAzuriranja { get; set; }
