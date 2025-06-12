@@ -150,10 +150,10 @@
         </form>
     </div>
 
-    @if (Model != null && Model.Any())
+    @if (Model != null && Model.Any(a => a != null && !a.Narucen))
     {
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
-            @foreach (var item in Model)
+            @foreach (var item in Model.Where(a => a != null && !a.Narucen))
             {
                 @if (item == null)
                 {

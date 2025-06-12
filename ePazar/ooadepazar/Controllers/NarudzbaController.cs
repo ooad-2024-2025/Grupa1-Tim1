@@ -80,6 +80,8 @@ namespace ooadepazar.Controllers
             var korisnik = await _userManager.GetUserAsync(User);
             if (korisnik == null) return Unauthorized();
 
+            artikal.Narucen = true;
+
             ViewBag.ArtikalId = id;
             ViewBag.Korisnik = korisnik;
             return View();
@@ -129,6 +131,8 @@ namespace ooadepazar.Controllers
                 Artikal = artikal,
                 Korisnik = korisnik
             };
+
+            artikal.Narucen = true;
 
             _context.Narudzba.Add(narudzba);
             await _context.SaveChangesAsync();
