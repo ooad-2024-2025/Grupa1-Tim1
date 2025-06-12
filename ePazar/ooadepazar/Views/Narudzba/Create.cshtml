@@ -5,30 +5,46 @@
     var user = ViewBag.Korisnik as ooadepazar.Models.ApplicationUser;
 }
 
-<h2>Potvrdi narudžbu</h2>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4 class="mb-0">Potvrda narudžbe</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Create" method="post">
+                        <input type="hidden" name="id" value="@ViewBag.ArtikalId" />
 
-<form asp-action="Create" method="post">
-    <input type="hidden" name="id" value="@ViewBag.ArtikalId" />
+                        <div class="mb-3">
+                            <label class="form-label">Ime</label>
+                            <input type="text" class="form-control" value="@user?.Ime" readonly />
+                        </div>
 
-    <div class="form-group">
-        <label>Ime</label>
-        <input type="text" class="form-control" value="@user?.Ime" readonly />
+                        <div class="mb-3">
+                            <label class="form-label">Prezime</label>
+                            <input type="text" class="form-control" value="@user?.Prezime" readonly />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Broj telefona</label>
+                            <input type="text" class="form-control" value="@user?.BrojTelefona" readonly />
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">Lokacija isporuke</label>
+                            <input type="text" name="Lokacija" class="form-control" required placeholder="Unesite adresu za isporuku" />
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success btn-block">✅ Potvrdi narudžbu</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-muted text-center small">
+                    Provjerite podatke prije potvrde
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="form-group">
-        <label>Prezime</label>
-        <input type="text" class="form-control" value="@user?.Prezime" readonly />
-    </div>
-
-    <div class="form-group">
-        <label>Broj telefona</label>
-        <input type="text" class="form-control" value="@user?.BrojTelefona" readonly />
-    </div>
-
-    <div class="form-group">
-        <label>Lokacija isporuke</label>
-        <input type="text" name="Lokacija" class="form-control" required />
-    </div>
-
-    <button type="submit" class="btn btn-primary">Potvrdi narudžbu</button>
-</form>
+</div>
