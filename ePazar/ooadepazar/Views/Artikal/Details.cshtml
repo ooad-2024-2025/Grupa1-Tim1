@@ -67,8 +67,11 @@
                         <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Početna</a>
                         @if (!isOwner)
                         {
-                            <a asp-controller="Narudzba" asp-action="Create" asp-route-id="@Model?.ID" class="btn btn-success">Naruči ovaj artikal</a>
+                            <a asp-controller="Narudzba" asp-action="Create" asp-route-id="@Model?.ID" class="btn btn-success">
+                                Naruči ovaj artikal
+                            </a>
                         }
+                        
                         @if (isOwner || isAdmin)
                         {
                             <a asp-action="Delete" asp-route-id="@Model.ID" class="btn btn-danger">Obriši</a>

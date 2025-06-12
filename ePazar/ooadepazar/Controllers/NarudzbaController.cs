@@ -26,14 +26,33 @@ namespace ooadepazar.Controllers
 
         // GET: Narudzba
         [Authorize(Roles = "KurirskaSluzba, Admin")]
-        
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string kurirskaSluzbaId = null)
         {
-            var narudzbe = await _context.Narudzba
+            var narudzbeQuery = _context.Narudzba
                 .Include(n => n.Artikal)
                 .Include(n => n.Korisnik)
                 .Include(n => n.KurirskaSluzba)
-                .ToListAsync();
+                .AsQueryable();
+
+            if (!string.IsNullOrEmpty(kurirskaSluzbaId))
+            {
+                narudzbeQuery = narudzbeQuery.Where(n => n.KurirskaSluzba != null && n.KurirskaSluzba.Id == kurirskaSluzbaId);
+            }
+
+            var narudzbe = await narudzbeQuery.ToListAsync();
+
+            // Pripremi listu kurirskih službi za dropdown
+            var kuriri = _context.Users
+                .Where(u => !string.IsNullOrEmpty(u.KurirskaSluzba))
+                .Select(u => new SelectListItem
+                {
+                    Value = u.Id,
+                    Text = !string.IsNullOrEmpty(u.KurirskaSluzba) ? u.KurirskaSluzba : $"{u.Ime} {u.Prezime}"
+                })
+                .ToList();
+
+            ViewBag.KurirskeSluzbe = kuriri;
+            ViewBag.OdabranaKurirskaSluzba = kurirskaSluzbaId;
 
             return View(narudzbe);
         }
@@ -56,36 +75,82 @@ namespace ooadepazar.Controllers
             return View(narudzba);
         }
 
+        /*
         [Authorize]
         public async Task<IActionResult> Create(int id)
         {
             ViewBag.SelectedArtikalId = id;
             var user = await _userManager.GetUserAsync(User);
+            ViewBag.Ime = user?.Ime ?? "";
+            ViewBag.Prezime = user?.Prezime ?? "";
+            ViewBag.Telefon = user?.BrojTelefona ?? "";
             ViewBag.Lokacija = user?.Adresa ?? "";
             return View();
         }
+        */
 
-        // POST
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        [HttpGet]
         [Authorize]
-        public IActionResult Create(int id, Narudzba narudzba)
+        public async Task<IActionResult> Create(int id)
         {
-            var artikal = _context.Artikal.FirstOrDefault(a => a.ID == id);
-            if (artikal == null)
-                return NotFound();
+            var artikal = await _context.Artikal.FirstOrDefaultAsync(a => a.ID == id);
+            if (artikal == null) return NotFound();
+
+            var korisnik = await _userManager.GetUserAsync(User);
+            if (korisnik == null) return Unauthorized();
 
             artikal.Narucen = true;
 
-            narudzba.Artikal = artikal;
-            narudzba.DatumNarudzbe = DateTime.Now;
+            var kuriri = _context.Users
+                .Where(u => !string.IsNullOrEmpty(u.KurirskaSluzba))
+                .Select(u => new SelectListItem
+                {
+                    Value = u.Id,
+                    Text = !string.IsNullOrEmpty(u.KurirskaSluzba)
+                        ? u.KurirskaSluzba
+                        : $"{u.Ime} {u.Prezime}"
+                })
+                .ToList();
+
+            ViewBag.ArtikalId = id;
+            ViewBag.Korisnik = korisnik;
+            ViewBag.KurirskeSluzbe = kuriri;
+
+            return View();
+        }
+        
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize]
+        public async Task<IActionResult> Create(int id, string Lokacija, string KurirskaSluzbaId)
+        {
+            var korisnik = await _userManager.GetUserAsync(User);
+            if (korisnik == null) return Unauthorized();
+
+            var artikal = await _context.Artikal.FirstOrDefaultAsync(a => a.ID == id);
+            if (artikal == null) return NotFound();
+
+            var kurirskaSluzba = await _context.Users.FirstOrDefaultAsync(u => u.Id == KurirskaSluzbaId);
+            if (kurirskaSluzba == null) return BadRequest("Morate izabrati kurirsku službu.");
+
+            var narudzba = new Narudzba
+            {
+                DatumNarudzbe = DateTime.Now,
+                Status = Status.Kreiran,
+                Lokacija = Lokacija,
+                Artikal = artikal,
+                Korisnik = korisnik,
+                KurirskaSluzba = kurirskaSluzba
+            };
+
+            artikal.Narucen = true;
 
             _context.Narudzba.Add(narudzba);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
             return RedirectToAction("Index");
         }
-
 
         // GET: Narudzba/Edit/5
         public async Task<IActionResult> Edit(int? id)
