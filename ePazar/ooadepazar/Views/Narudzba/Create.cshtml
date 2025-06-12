@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Potvrdi narudžbu";
     var user = ViewBag.Korisnik as ooadepazar.Models.ApplicationUser;
+    var kurirskeSluzbe = ViewBag.KurirskeSluzbe as List<SelectListItem>;
 }
 
 <div class="container mt-5">
@@ -34,6 +35,22 @@
                         <div class="mb-4">
                             <label class="form-label">Lokacija isporuke</label>
                             <input type="text" name="Lokacija" class="form-control" required placeholder="Unesite adresu za isporuku" />
+                        </div>
+
+                        
+                        @* Dodaj izbor kurirske službe *@
+                        <div class="mb-4">
+                            <label for="KurirskaSluzbaId" class="form-label">Izaberite kurirsku službu</label>
+                            <select class="form-select" name="KurirskaSluzbaId" id="KurirskaSluzbaId" required>
+                                <option value="" disabled selected>Odaberite kurirsku službu</option>
+                                @if (kurirskeSluzbe != null)
+                                {
+                                    foreach (var kurir in kurirskeSluzbe)
+                                    {
+                                        <option value="@kurir.Value">@kurir.Text</option>
+                                    }
+                                }
+                            </select>
                         </div>
 
                         <div class="d-grid">
