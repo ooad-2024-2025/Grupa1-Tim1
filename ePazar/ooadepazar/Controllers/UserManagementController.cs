@@ -94,7 +94,7 @@ namespace ooadepazar.Controllers
                     .Where(n => n.KurirskaSluzba != null && n.KurirskaSluzba.Id == user.Id)
                     .ToListAsync();
 
-                var defaultKurir = await _userManager.FindByIdAsync("6f9be995-61b5-4c92-838a-bd79642263ae");
+                var defaultKurir = await _userManager.FindByIdAsync("7497c315-522f-431a-a214-0cc3827407ad");
                 foreach (var narudzba in narudzbe)
                 {
                     narudzba.KurirskaSluzba = defaultKurir;
