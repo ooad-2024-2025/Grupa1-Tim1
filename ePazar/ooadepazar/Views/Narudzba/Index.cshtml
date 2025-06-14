@@ -4,21 +4,28 @@
 @{
     var kurirskeSluzbe = ViewBag.KurirskeSluzbe as List<SelectListItem>;
     var odabranaKurirskaSluzba = ViewBag.OdabranaKurirskaSluzba as string;
+    var isAdmin = ViewBag.IsAdmin as bool? ?? false;
 }
-<div class="mb-4">
-    <label for="KurirskaSluzbaId" class="form-label">Izaberite kurirsku službu</label>
-    <select class="form-select" name="KurirskaSluzbaId" id="KurirskaSluzbaId" required>
-        <option value="" disabled selected>Odaberite kurirsku službu</option>
-        @if (kurirskeSluzbe != null)
-        {
-            foreach (var kurir in kurirskeSluzbe)
-            {
-                <option value="@kurir.Value">@kurir.Text</option>
-            }
-        }
-    </select>
-</div>
 
+@if (isAdmin)
+{
+    <form method="get" class="mb-4 mt-4 d-flex align-items-center gap-2">
+        <label for="KurirskaSluzbaId" class="form-label mb-0 me-2">Izaberite kurirsku službu</label>
+        <select class="form-select w-auto" name="KurirskaSluzbaId" id="KurirskaSluzbaId">
+            <option value="">Sve kurirske službe</option>
+            @if (kurirskeSluzbe != null)
+            {
+                @foreach (var kurir in kurirskeSluzbe)
+                {
+                    <option value="@kurir.Value" selected="@(kurir.Value == odabranaKurirskaSluzba)">
+                        @kurir.Text
+                    </option>
+                }
+            }
+        </select>
+        <button type="submit" class="btn btn-outline-primary">Primijeni filter</button>
+    </form>
+}
 
 @{
     ViewData["Title"] = "Moje narudžbe";
@@ -43,12 +50,16 @@
         border-top-left-radius: 0.4rem;
         border-top-right-radius: 0.4rem;
     }
+
     .order-card-img-fit {
         position: absolute;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
         object-fit: cover;
     }
+
     .order-card {
         border: none;
         border-radius: 0.4rem;
@@ -58,10 +69,12 @@
         min-width: 120px;
         max-width: 150px;
     }
-    .order-card:hover {
-        transform: translateY(-3px) scale(1.03);
-        box-shadow: 0 6px 18px rgba(0,0,0,0.10);
-    }
+
+        .order-card:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.10);
+        }
+
     .order-card-title {
         font-weight: 600;
         font-size: 1rem;
@@ -71,6 +84,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
     }
+
     .order-card-location {
         color: #6c757d;
         font-size: 0.9rem;
@@ -80,11 +94,14 @@
     }
 </style>
 
-@foreach (var sec in sections) {
+@foreach (var sec in sections)
+{
     <h4 class="mt-4 mb-3">@sec.Title</h4>
-    @if (sec.Orders.Any()) {
+    @if (sec.Orders.Any())
+    {
         <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-2">
-            @foreach (var narudzba in sec.Orders) {
+            @foreach (var narudzba in sec.Orders)
+            {
                 var artikal = narudzba.Artikal;
                 if (artikal == null) { continue; }
                 <div class="col">
@@ -104,14 +121,16 @@
                                 </div>
                             </div>
                         </a>
-                        @if (sec.Title == "Kreirane narudžbe") {
+                        @if (sec.Title == "Kreirane narudžbe")
+                        {
                             <form asp-action="PromijeniStatus" asp-route-id="@narudzba.ID" asp-route-noviStatus="UObradi" method="post" class="position-absolute top-0 end-0 m-2">
                                 <button type="submit" class="btn btn-primary btn-md" title="Pošalji u obradu">
                                     <i class="bi bi-truck"></i>
                                 </button>
                             </form>
                         }
-                        else if (sec.Title == "Narudžbe u obradi") {
+                        else if (sec.Title == "Narudžbe u obradi")
+                        {
                             <div class="position-absolute top-0 end-0 m-2 d-flex flex-column gap-1">
                                 <form asp-action="PromijeniStatus" asp-route-id="@narudzba.ID" asp-route-noviStatus="Dostavljen" method="post">
                                     <button type="submit" class="btn btn-sm btn-success mb-1" title="Završi narudžbu">
@@ -130,7 +149,8 @@
             }
         </div>
     }
-    else {
+    else
+    {
         <div class="alert alert-secondary text-center py-2 mb-4">Nema narudžbi u ovoj sekciji.</div>
     }
 }

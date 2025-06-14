@@ -18,7 +18,8 @@ namespace ooadepazar.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IMailService _mailService;
 
-        public NarudzbaController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, IMailService mailService) {
+        public NarudzbaController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, IMailService mailService)
+        {
             _context = context;
             _userManager = userManager;
             _mailService = mailService;
@@ -28,31 +29,50 @@ namespace ooadepazar.Controllers
         [Authorize(Roles = "KurirskaSluzba, Admin")]
         public async Task<IActionResult> Index(string kurirskaSluzbaId = null)
         {
+            var currentUser = await _userManager.GetUserAsync(User);
+            var isAdmin = await _userManager.IsInRoleAsync(currentUser, "Admin");
+
             var narudzbeQuery = _context.Narudzba
                 .Include(n => n.Artikal)
                 .Include(n => n.Korisnik)
                 .Include(n => n.KurirskaSluzba)
                 .AsQueryable();
 
-            if (!string.IsNullOrEmpty(kurirskaSluzbaId))
+            // Ako nije admin, prikaži samo narudžbe te kurirske službe
+            if (!isAdmin)
+            {
+                narudzbeQuery = narudzbeQuery.Where(n => n.KurirskaSluzba != null && n.KurirskaSluzba.Id == currentUser.Id);
+            }
+            // Ako je admin i odabrao je kurirsku službu za filtriranje
+            else if (!string.IsNullOrEmpty(kurirskaSluzbaId))
             {
                 narudzbeQuery = narudzbeQuery.Where(n => n.KurirskaSluzba != null && n.KurirskaSluzba.Id == kurirskaSluzbaId);
             }
 
             var narudzbe = await narudzbeQuery.ToListAsync();
 
-            // Pripremi listu kurirskih službi za dropdown
-            var kuriri = _context.Users
-                .Where(u => !string.IsNullOrEmpty(u.KurirskaSluzba))
-                .Select(u => new SelectListItem
-                {
-                    Value = u.Id,
-                    Text = !string.IsNullOrEmpty(u.KurirskaSluzba) ? u.KurirskaSluzba : $"{u.Ime} {u.Prezime}"
-                })
-                .ToList();
+            // Kreiranje liste kurirskih službi samo za admina
+            List<SelectListItem> kuriri = new List<SelectListItem>();
+            if (isAdmin)
+            {
+                var kurirskaSluzbaUsers = await _userManager
+                    .GetUsersInRoleAsync("KurirskaSluzba");
+
+                kuriri = kurirskaSluzbaUsers
+                    .OrderBy(u => !string.IsNullOrEmpty(u.KurirskaSluzba) ? u.KurirskaSluzba : $"{u.Ime} {u.Prezime}")
+                    .Select(u => new SelectListItem
+                    {
+                        Value = u.Id,
+                        Text = !string.IsNullOrEmpty(u.KurirskaSluzba)
+                               ? u.KurirskaSluzba
+                               : $"{u.Ime} {u.Prezime}"
+                    })
+                    .ToList();
+            }
 
             ViewBag.KurirskeSluzbe = kuriri;
             ViewBag.OdabranaKurirskaSluzba = kurirskaSluzbaId;
+            ViewBag.IsAdmin = isAdmin;
 
             return View(narudzbe);
         }
@@ -75,20 +95,6 @@ namespace ooadepazar.Controllers
             return View(narudzba);
         }
 
-        /*
-        [Authorize]
-        public async Task<IActionResult> Create(int id)
-        {
-            ViewBag.SelectedArtikalId = id;
-            var user = await _userManager.GetUserAsync(User);
-            ViewBag.Ime = user?.Ime ?? "";
-            ViewBag.Prezime = user?.Prezime ?? "";
-            ViewBag.Telefon = user?.BrojTelefona ?? "";
-            ViewBag.Lokacija = user?.Adresa ?? "";
-            return View();
-        }
-        */
-
         [HttpGet]
         [Authorize]
         public async Task<IActionResult> Create(int id)
@@ -101,16 +107,13 @@ namespace ooadepazar.Controllers
 
             artikal.Narucen = true;
 
-            var kuriri = _context.Users
-                .Where(u => !string.IsNullOrEmpty(u.KurirskaSluzba))
-                .Select(u => new SelectListItem
-                {
-                    Value = u.Id,
-                    Text = !string.IsNullOrEmpty(u.KurirskaSluzba)
-                        ? u.KurirskaSluzba
-                        : $"{u.Ime} {u.Prezime}"
-                })
-                .ToList();
+            // Lista kurirskih službi na osnovu role
+            var kurirskaSluzbaUsers = await _userManager.GetUsersInRoleAsync("KurirskaSluzba");
+            var kuriri = kurirskaSluzbaUsers.Select(u => new SelectListItem
+            {
+                Value = u.Id,
+                Text = !string.IsNullOrEmpty(u.KurirskaSluzba) ? u.KurirskaSluzba : $"{u.Ime} {u.Prezime}"
+            }).ToList();
 
             ViewBag.ArtikalId = id;
             ViewBag.Korisnik = korisnik;
@@ -118,7 +121,7 @@ namespace ooadepazar.Controllers
 
             return View();
         }
-        
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -222,7 +225,8 @@ namespace ooadepazar.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "KurirskaSluzba, Admin")]
-        public async Task<IActionResult> PromijeniStatus(int id, string noviStatus) {
+        public async Task<IActionResult> PromijeniStatus(int id, string noviStatus)
+        {
             var narudzba = await _context.Narudzba
                 .Include(n => n.Korisnik)
                 .Include(n => n.Artikal)
@@ -244,9 +248,11 @@ namespace ooadepazar.Controllers
             await _context.SaveChangesAsync();
 
             // Send email notification
-            if (narudzba.Korisnik != null) {
+            if (narudzba.Korisnik != null)
+            {
                 string subject = "Status vaše narudžbe je promijenjen";
-                string message = status switch {
+                string message = status switch
+                {
                     Status.UObradi => $"Vaša narudžba za artikal \"{narudzba.Artikal?.Naziv}\" je sada u obradi.",
                     Status.Dostavljen => $"Vaša narudžba za artikal \"{narudzba.Artikal?.Naziv}\" je završena i označena kao dostavljena.",
                     _ => $"Status vaše narudžbe je promijenjen u: {status}."
