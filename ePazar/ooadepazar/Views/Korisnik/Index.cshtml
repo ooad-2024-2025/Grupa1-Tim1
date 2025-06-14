@@ -1,4 +1,4 @@
-@using Microsoft.AspNetCore.Identity
+﻿@using Microsoft.AspNetCore.Identity
 @model ooadepazar.Models.ViewModels.KorisnikArtikliViewModel
 @inject ApplicationDbContext DbContext
 @using ooadepazar.Data
@@ -48,6 +48,47 @@
             box-shadow: 0 8px 16px rgba(0,0,0,0.1); /* Stronger shadow on hover */
         }
 
+    /* Naručeni artikli styling */
+    .card-ordered {
+        opacity: 0.7;
+        border: 2px solid #ffc107; /* Žuta boja za naručene */
+        background-color: #fff9e6; /* Svetlo žuta pozadina */
+        position: relative;
+    }
+
+        .card-ordered::before {
+            content: "NARUČENO";
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ffc107;
+            color: #212529;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            z-index: 10;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .card-ordered .card-img-fit {
+            filter: grayscale(30%); /* Blago siva slika za naručene */
+        }
+
+        .card-ordered .card-title a {
+            color: #6c757d !important; /* Siva boja za naslov naručenih */
+        }
+
+        .card-ordered .card-price {
+            color: #6c757d !important; /* Siva boja za cenu naručenih */
+            text-decoration: line-through; /* Precrtana cena */
+        }
+
+        .card-ordered .btn-outline-primary {
+            opacity: 0.6;
+            pointer-events: none; /* Onemogući klik na dugme */
+        }
+
     .card-title {
         color: #0056b3; /* Darker blue for titles */
         font-weight: 600;
@@ -67,6 +108,10 @@
     .card-footer {
         background-color: #f8f9fa; /* Light background for footer */
         border-top: 1px solid #e9ecef; /* Light border */
+    }
+
+    .card-ordered .card-footer {
+        background-color: #fff3cd; /* Žućkasta pozadina za footer naručenih */
     }
 
     /* Filter/Search bar styling */
@@ -137,9 +182,9 @@
             }
         </div>
     </div>
-    
+
     <h3>Artikli korisnika</h3>
-    
+
     @if (Model.Artikli != null && Model.Artikli.Any())
     {
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
@@ -151,7 +196,7 @@
                 }
 
                 <div class="col">
-                    <div class="card h-100">
+                    <div class="card h-100 @(item.Narucen ? "card-ordered" : "")">
                         <div class="card-img-container-4-3">
                             @if (!string.IsNullOrEmpty(item.SlikaUrl))
                             {
@@ -178,6 +223,12 @@
                             <p class="card-text text-muted mb-2">
                                 <small><i class="bi bi-info-circle me-1"></i> Stanje: @item.Stanje.ToString()</small>
                             </p>
+                            @if (item.Narucen)
+                            {
+                                <p class="card-text text-muted mb-2">
+                                    <small><i class="bi bi-check-circle-fill text-warning me-1"></i> Status: <strong>Naručeno</strong></small>
+                                </p>
+                            }
                             <p class="card-text flex-grow-1 text-secondary mb-3">
                                 @(item.Opis.Length > 100 ? item.Opis.Substring(0, 100) + "..." : item.Opis)
                             </p>
@@ -193,9 +244,18 @@
                             {
                                 <small class="text-info"><i class="bi bi-person-slash me-1"></i> N/A</small>
                             }
-                            <a asp-controller="Artikal" asp-action="Details" asp-route-id="@item.ID" class="btn btn-sm btn-outline-primary">
-                                <i class="bi bi-arrow-right-circle"></i> Detalji
-                            </a>
+                            @if (item.Narucen)
+                            {
+                                <span class="btn btn-sm btn-outline-secondary disabled">
+                                    <i class="bi bi-check-circle"></i> Naručeno
+                                </span>
+                            }
+                            else
+                            {
+                                <a asp-controller="Artikal" asp-action="Details" asp-route-id="@item.ID" class="btn btn-sm btn-outline-primary">
+                                    <i class="bi bi-arrow-right-circle"></i> Detalji
+                                </a>
+                            }
                         </div>
                     </div>
                 </div>
