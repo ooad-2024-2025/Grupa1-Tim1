@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ooadepazar.Data;
 using ooadepazar.Models;
 
 namespace ooadepazar.Controllers
@@ -14,11 +15,16 @@ namespace ooadepazar.Controllers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly ApplicationDbContext _context;
 
-        public UserManagementController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
+        public UserManagementController(
+            UserManager<ApplicationUser> userManager,
+            RoleManager<IdentityRole> roleManager,
+            ApplicationDbContext context)
         {
             _userManager = userManager;
             _roleManager = roleManager;
+            _context = context;
         }
 
         // GET: /UserManagement
@@ -81,6 +87,20 @@ namespace ooadepazar.Controllers
 
             var rolesToAdd = selectedRoles.Except(currentRoles);
             var rolesToRemove = currentRoles.Except(selectedRoles);
+
+            if (rolesToRemove.Contains("KurirskaSluzba"))
+            {
+                var narudzbe = await _context.Narudzba
+                    .Where(n => n.KurirskaSluzba != null && n.KurirskaSluzba.Id == user.Id)
+                    .ToListAsync();
+
+                var defaultKurir = await _userManager.FindByIdAsync("6f9be995-61b5-4c92-838a-bd79642263ae");
+                foreach (var narudzba in narudzbe)
+                {
+                    narudzba.KurirskaSluzba = defaultKurir;
+                }
+                await _context.SaveChangesAsync();
+            }
 
             await _userManager.RemoveFromRolesAsync(user, rolesToRemove);
             await _userManager.AddToRolesAsync(user, rolesToAdd);
