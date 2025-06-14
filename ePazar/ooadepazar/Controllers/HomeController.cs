@@ -35,10 +35,12 @@ public class HomeController : Controller
                              .Select(k => new SelectListItem
                              {
                                  Value = ((int)k).ToString(),
-                                 Text = k.ToString().Replace("_", " ") // Make enum names more readable
+                                 Text = k.ToString().Replace("_", " ")
                              })
+                             .OrderBy(x => x.Text)
                              .ToList();
-        kategorije.Insert(0, new SelectListItem { Value = "", Text = "Sve kategorije", Selected = true }); // Add "All Categories" option
+
+        kategorije.Insert(0, new SelectListItem { Value = "", Text = "Sve kategorije", Selected = true });
         ViewBag.KategorijaOptions = kategorije;
 
         // Populate Sorting dropdown options
