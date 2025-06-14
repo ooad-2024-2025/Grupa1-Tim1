@@ -3,13 +3,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ooadepazar.Data;
 using ooadepazar.Models;
-using Microsoft.AspNetCore.Mvc.Rendering; // Required for SelectList and SelectListItem
-using System.Linq; // Required for LINQ queries
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Linq;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Markdig;
-using Microsoft.Extensions.Logging; // Required for Enum
+using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Identity;
 
 namespace ooadepazar.Controllers;
 
@@ -17,11 +18,13 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
     private readonly ApplicationDbContext _context;
+    private readonly UserManager<ApplicationUser> _userManager;
 
-    public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
+    public HomeController(ILogger<HomeController> logger, ApplicationDbContext context, UserManager<ApplicationUser> userManager)
     {
         _logger = logger;
-        _context = context; 
+        _context = context;
+        _userManager = userManager;
     }
 
     // This is now your main e-commerce homepage action
@@ -58,14 +61,25 @@ public class HomeController : Controller
         ViewBag.CurrentCategoryId = categoryId;
         ViewBag.CurrentSortBy = sortBy;
 
+        // --- Check if current user is Admin ---
+        var currentUser = await _userManager.GetUserAsync(User);
+        bool isAdmin = currentUser != null && await _userManager.IsInRoleAsync(currentUser, "Admin");
+
         // --- Fetch, Filter, and Sort Articles ---
 
         // Start with all articles and eager load the Korisnik (user) data
         var artikli = _context.Artikal
             .Include(a => a.Korisnik)
-            .Where(a => a.Narucen == false)
             .AsQueryable();
-        
+
+        // Filter by order status based on user role
+        if (!isAdmin)
+        {
+            // Regular users can only see articles that are not ordered
+            artikli = artikli.Where(a => a.Narucen == false);
+        }
+        // Admin can see all articles (both ordered and not ordered)
+
         // Apply Search Filtering
         if (!string.IsNullOrEmpty(searchQuery))
         {
@@ -109,7 +123,7 @@ public class HomeController : Controller
     {
         return View();
     }
-    
+
     [HttpGet("Home/GetAIResponseInMarkdown/{artikalId}")]
     public async Task<IActionResult> GetAIResponseInMarkdown(int artikalId)
     {
@@ -118,11 +132,11 @@ public class HomeController : Controller
         {
             return NotFound($"Artikal with ID {artikalId} not found.");
         }
-        
-        string prompt = $"💰{artikal.Naziv}💰\n🏘️ {artikal.Opis}\n\nCIJENA: {artikal.Cijena}, LOKACIJA: {artikal.Lokacija}";        
+
+        string prompt = $"💰{artikal.Naziv}💰\n🏘️ {artikal.Opis}\n\nCIJENA: {artikal.Cijena}, LOKACIJA: {artikal.Lokacija}";
         OpenAIController c = new OpenAIController();
         string markdown = await c.SendMessageAsync(prompt);
-        
+
         string html = Markdown.ToHtml(markdown);
         return Content(html, "text/html");
     }
