@@ -104,7 +104,6 @@
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Preklopi navigaciju">
-                    @* PREVEDENO *@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -112,19 +111,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Početna</a>
                         </li>
-                        @* <li class="nav-item"> *@
-                        @*     <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> $1$ DODATO Privacy link koji je bio izbačen #1# *@
-                        @* </li> *@
-                        @* Dugme "Objavite Oglas" premješteno na desnu stranu kod login/register, kao na OLX.ba *
-                         * Ovdje više nije potrebno, jer je dole u _LoginPartial dijelu *@
                     </ul>
                     <ul class="navbar-nav ms-auto mb-2 mb-md-0 d-flex align-items-center">
-                        <li class="nav-item me-2">
-                            <partial name="_LoginPartial"></partial>
-                        </li>
-                        @* Ovdje će biti dugme "Objavite Oglas" kroz _LoginPartial za neprijavljene,
-                         * ili će biti dio padajućeg menija za prijavljene korisnike, ili jednostavno tu stojao uvijek vidljiv.
-                         * Ja sam ga stavio u _LoginPartial da ga kontrolišeš iz jednog mjesta. *@
+                        
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
@@ -133,7 +122,6 @@
                                 </a>
                             </li>
                         }
-                        @using Microsoft.AspNetCore.Identity
                         @if (User.IsInRole("KurirskaSluzba") || User.IsInRole("Admin"))
                         {
                             <li class="nav-item">
@@ -142,6 +130,9 @@
                                 </a>
                             </li>
                         }
+                        <li class="nav-item me-2">
+                            <partial name="_LoginPartial"></partial>
+                        </li>
                     </ul>
                 </div>
             </div>
