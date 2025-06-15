@@ -107,13 +107,15 @@ namespace ooadepazar.Controllers
 
             artikal.Narucen = true;
 
-            // Lista kurirskih službi na osnovu role
+            // Lista kurirskih službi na osnovu role - sortirana abecedno
             var kurirskaSluzbaUsers = await _userManager.GetUsersInRoleAsync("KurirskaSluzba");
-            var kuriri = kurirskaSluzbaUsers.Select(u => new SelectListItem
-            {
-                Value = u.Id,
-                Text = !string.IsNullOrEmpty(u.KurirskaSluzba) ? u.KurirskaSluzba : $"{u.Ime} {u.Prezime}"
-            }).ToList();
+            var kuriri = kurirskaSluzbaUsers
+                .OrderBy(u => !string.IsNullOrEmpty(u.KurirskaSluzba) ? u.KurirskaSluzba : $"{u.Ime} {u.Prezime}")
+                .Select(u => new SelectListItem
+                {
+                    Value = u.Id,
+                    Text = !string.IsNullOrEmpty(u.KurirskaSluzba) ? u.KurirskaSluzba : $"{u.Ime} {u.Prezime}"
+                }).ToList();
 
             ViewBag.ArtikalId = id;
             ViewBag.Korisnik = korisnik;

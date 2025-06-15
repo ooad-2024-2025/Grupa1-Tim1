@@ -57,7 +57,18 @@ namespace ooadepazar.Controllers
         public IActionResult Create()
         {
             ViewBag.StanjeOptions = new SelectList(Enum.GetValues(typeof(Stanje)));
-            ViewBag.KategorijaOptions = new SelectList(Enum.GetValues(typeof(Kategorija)));
+
+            var kategorije = Enum.GetValues(typeof(Kategorija))
+                                 .Cast<Kategorija>()
+                                 .Select(k => new SelectListItem
+                                 {
+                                     Value = ((int)k).ToString(),
+                                     Text = k.ToString().Replace("_", " ")
+                                 })
+                                 .OrderBy(x => x.Text)
+                                 .ToList();
+            ViewBag.KategorijaOptions = kategorije;
+
             return View();
         }
 
@@ -70,7 +81,17 @@ namespace ooadepazar.Controllers
         public async Task<IActionResult> Create([Bind("ID,Naziv,Stanje,Opis,Cijena,Lokacija,DatumObjave,DatumAzuriranja,Kategorija,SlikaUrl,Narucen")] Artikal artikal)
         {
             ViewBag.StanjeOptions = new SelectList(Enum.GetValues(typeof(Stanje)));
-            ViewBag.KategorijaOptions = new SelectList(Enum.GetValues(typeof(Kategorija)));
+
+            var kategorije = Enum.GetValues(typeof(Kategorija))
+                                 .Cast<Kategorija>()
+                                 .Select(k => new SelectListItem
+                                 {
+                                     Value = ((int)k).ToString(),
+                                     Text = k.ToString().Replace("_", " ")
+                                 })
+                                 .OrderBy(x => x.Text)
+                                 .ToList();
+            ViewBag.KategorijaOptions = kategorije;
 
             artikal.DatumObjave = DateTime.Now;
             artikal.DatumAzuriranja = DateTime.Now;
@@ -85,10 +106,10 @@ namespace ooadepazar.Controllers
                 _context.Add(artikal);
                 await _context.SaveChangesAsync();
 
-                    var followers = await _context.Pracenje
-                    .Where(p => p.PraceniID.Id == currentUser.Id)
-                    .Select(p => p.PratilacID)
-                    .ToListAsync();
+                var followers = await _context.Pracenje
+                .Where(p => p.PraceniID.Id == currentUser.Id)
+                .Select(p => p.PratilacID)
+                .ToListAsync();
 
                 foreach (var follower in followers)
                 {
@@ -138,7 +159,17 @@ namespace ooadepazar.Controllers
             }
 
             ViewBag.StanjeOptions = new SelectList(Enum.GetValues(typeof(Stanje)));
-            ViewBag.KategorijaOptions = new SelectList(Enum.GetValues(typeof(Kategorija)));
+
+            var kategorije = Enum.GetValues(typeof(Kategorija))
+                                 .Cast<Kategorija>()
+                                 .Select(k => new SelectListItem
+                                 {
+                                     Value = ((int)k).ToString(),
+                                     Text = k.ToString().Replace("_", " ")
+                                 })
+                                 .OrderBy(x => x.Text)
+                                 .ToList();
+            ViewBag.KategorijaOptions = kategorije;
 
             return View(artikal);
         }
@@ -158,7 +189,8 @@ namespace ooadepazar.Controllers
 
             if (ModelState.IsValid)
             {
-                try {
+                try
+                {
                     var existingArtikal = await _context.Artikal.FindAsync(id);
                     if (existingArtikal == null)
                         return NotFound();
@@ -192,7 +224,17 @@ namespace ooadepazar.Controllers
             }
 
             ViewBag.StanjeOptions = new SelectList(Enum.GetValues(typeof(Stanje)));
-            ViewBag.KategorijaOptions = new SelectList(Enum.GetValues(typeof(Kategorija)));
+
+            var kategorije = Enum.GetValues(typeof(Kategorija))
+                                 .Cast<Kategorija>()
+                                 .Select(k => new SelectListItem
+                                 {
+                                     Value = ((int)k).ToString(),
+                                     Text = k.ToString().Replace("_", " ")
+                                 })
+                                 .OrderBy(x => x.Text)
+                                 .ToList();
+            ViewBag.KategorijaOptions = kategorije;
 
             return View(artikal);
         }
