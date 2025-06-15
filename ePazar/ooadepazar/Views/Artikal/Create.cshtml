@@ -84,23 +84,26 @@
 
     .row.align-items-stretch .card {
         flex-grow: 1;
-    } */
+    }
 
+    */
     /* Dodatni stil za preview karticu ako je potrebno prilagoditi gornji razmak naslova */
     #previewCard h2 {
-        margin-top: 0; /* Ukloni gornju marginu ako je prisutna */
+        margin-top: 0; /* Uklomi gornju marginu ako je prisutna */
     }
 
 </style>
 
 <div class="container py-4">
-    <div class="row justify-content-center align-items-stretch"> @* Važno: Dodajte 'align-items-stretch' klasi 'row' *@
+    <div class="row justify-content-center align-items-stretch">
+        @* Važno: Dodajte 'align-items-stretch' klasi 'row' *@
         @* Lijeva strana: Forma za kreiranje artikla *@
         <div class="col-lg-6 mb-4">
-            <div class="card shadow h-100"> @* Dodana klasa 'h-100' *@
+            <div class="card shadow h-100">
+                @* Dodana klasa 'h-100' *@
                 <div class="card-body">
                     <h3 class="card-title mb-4">Kreiraj artikal</h3>
-                    <form asp-action="Create" method="post" id="createArtikalForm">
+                    <form asp-action="Create" method="post" id="createArtikalForm" autocomplete="off">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                         <div class="mb-3">
@@ -108,29 +111,31 @@
                             <input asp-for="Naziv" class="form-control" id="Naziv"
                                    maxlength="30"
                                    pattern="^[\w\-.]+$"
-                                   title="Dozvoljena su slova, brojevi, crtice i tačke. Maksimalno 30 karaktera." />
+                                   title="Dozvoljena su slova, brojevi, crtice i tačke. Maksimalno 30 karaktera."
+                                   autocomplete="off" readonly onfocus="this.removeAttribute('readonly');" />
                             <span asp-validation-for="Naziv" class="text-danger"></span>
                         </div>
                         <div class="mb-3">
                             <label asp-for="Stanje" class="form-label"></label>
-                            <select asp-for="Stanje" class="form-control" asp-items="ViewBag.StanjeOptions" id="Stanje"></select>
+                            <select asp-for="Stanje" class="form-control" asp-items="ViewBag.StanjeOptions" id="Stanje" autocomplete="off"></select>
                             <span asp-validation-for="Stanje" class="text-danger"></span>
                         </div>
                         <div class="mb-3">
                             <label asp-for="Kategorija" class="form-label"></label>
-                            <select asp-for="Kategorija" class="form-control" asp-items="ViewBag.KategorijaOptions" id="Kategorija"></select>
+                            <select asp-for="Kategorija" class="form-control" asp-items="ViewBag.KategorijaOptions" id="Kategorija" autocomplete="off"></select>
                             <span asp-validation-for="Kategorija" class="text-danger"></span>
                         </div>
                         <div class="mb-3">
                             <label asp-for="Opis" class="form-label"></label>
-                            <textarea asp-for="Opis" class="form-control" rows="3" id="Opis"></textarea>
+                            <textarea asp-for="Opis" class="form-control" rows="3" id="Opis" autocomplete="off" readonly onfocus="this.removeAttribute('readonly');"></textarea>
                             <span asp-validation-for="Opis" class="text-danger"></span>
                         </div>
                         <div class="mb-3">
                             <label asp-for="Cijena" class="form-label"></label>
                             <input asp-for="Cijena" class="form-control" type="number"
                                    min="0" max="1000000" step="0.01"
-                                   title="Cijena mora biti između 0 i 1,000,000." />
+                                   title="Cijena mora biti između 0 i 1,000,000."
+                                   autocomplete="off" readonly onfocus="this.removeAttribute('readonly');" />
                             <span asp-validation-for="Cijena" class="text-danger"></span>
                         </div>
 
@@ -139,12 +144,14 @@
                             <input asp-for="Lokacija" class="form-control" id="Lokacija"
                                    maxlength="20"
                                    pattern="^[a-zA-Z0-9čćžšđČĆŽŠĐ \-]{1,20}$"
-                                   title="Dozvoljena su slova (čćžšđ), brojevi, razmaci i crtice. Maksimalno 20 karaktera." />
+                                   title="Dozvoljena su slova (čćžšđ), brojevi, razmaci i crtice. Maksimalno 20 karaktera."
+                                   autocomplete="off" readonly onfocus="this.removeAttribute('readonly');" />
                             <span asp-validation-for="Lokacija" class="text-danger"></span>
                         </div>
                         <div class="mb-3">
                             <label asp-for="SlikaUrl" class="form-label"></label>
-                            <input asp-for="SlikaUrl" class="form-control" id="SlikaUrl" />
+                            <input asp-for="SlikaUrl" class="form-control" id="SlikaUrl"
+                                   autocomplete="off" readonly onfocus="this.removeAttribute('readonly');" />
                             <span asp-validation-for="SlikaUrl" class="text-danger"></span>
                         </div>
 
@@ -156,12 +163,14 @@
         </div>
 
         @* Desna strana: Preview kartica *@
-        <div class="col-lg-4 d-flex flex-column"> @* Važno: Dodana klasa 'd-flex flex-column' *@
+        <div class="col-lg-4 d-flex flex-column">
+            @* Važno: Dodana klasa 'd-flex flex-column' *@
             <div class="text-center mb-4">
                 <h2 class="display-6 fw-bold text-dark">Pregled Artikla</h2>
                 <p class="lead text-muted">Kako će artikal izgledati na početnoj stranici.</p>
             </div>
-            <div class="card shadow h-100" id="previewCard"> @* Važno: Dodana klasa 'h-100' *@
+            <div class="card shadow h-100" id="previewCard">
+                @* Važno: Dodana klasa 'h-100' *@
                 <div class="card-img-container-4-3">
                     <img src="https://placehold.co/300x225/CED4DA/495057?text=Nema+Slike" class="card-img-fit" alt="Nema Slike" id="previewSlikaUrl" loading="lazy">
                 </div>
