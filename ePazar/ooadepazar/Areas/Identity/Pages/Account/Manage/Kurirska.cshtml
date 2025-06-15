@@ -22,6 +22,9 @@
             new { Title = "Narudžbe u obradi", Orders = uObradi },
             new { Title = "Dostavljene narudžbe", Orders = dostavljene }
         };
+
+    // Generiši ispravnu URL za vraćanje na ovu stranicu
+    var currentPageUrl = Url.Page("Kurirska", new { area = "Identity" });
 }
 
 <style>
@@ -107,7 +110,7 @@
                         </a>
                         @if (sec.Title == "Kreirane narudžbe")
                         {
-                            <form asp-action="PromijeniStatus" asp-route-id="@narudzba.ID" asp-route-noviStatus="UObradi" method="post" class="position-absolute top-0 end-0 m-2">
+                            <form asp-controller="Narudzba" asp-action="PromijeniStatus" asp-route-id="@narudzba.ID" asp-route-noviStatus="UObradi" asp-route-returnUrl="@currentPageUrl" method="post" class="position-absolute top-0 end-0 m-2">
                                 <button type="submit" class="btn btn-primary btn-md" title="Pošalji u obradu">
                                     <i class="bi bi-truck"></i>
                                 </button>
@@ -116,12 +119,12 @@
                         else if (sec.Title == "Narudžbe u obradi")
                         {
                             <div class="position-absolute top-0 end-0 m-2 d-flex flex-column gap-1">
-                                <form asp-action="PromijeniStatus" asp-route-id="@narudzba.ID" asp-route-noviStatus="Dostavljen" method="post">
+                                <form asp-controller="Narudzba" asp-action="PromijeniStatus" asp-route-id="@narudzba.ID" asp-route-noviStatus="Dostavljen" asp-route-returnUrl="@currentPageUrl" method="post">
                                     <button type="submit" class="btn btn-sm btn-success mb-1" title="Završi narudžbu">
                                         <i class="bi bi-check-circle"></i>
                                     </button>
                                 </form>
-                                <form asp-action="PromijeniStatus" asp-route-id="@narudzba.ID" asp-route-noviStatus="Kreiran" method="post">
+                                <form asp-controller="Narudzba" asp-action="PromijeniStatus" asp-route-id="@narudzba.ID" asp-route-noviStatus="Kreiran" asp-route-returnUrl="@currentPageUrl" method="post">
                                     <button type="submit" class="btn btn-sm btn-danger" title="Otkaži narudžbu">
                                         <i class="bi bi-x-circle"></i>
                                     </button>
