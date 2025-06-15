@@ -109,7 +109,10 @@ namespace ooadepazar.Controllers
 
             // Lista kurirskih službi na osnovu role - sortirana abecedno
             var kurirskaSluzbaUsers = await _userManager.GetUsersInRoleAsync("KurirskaSluzba");
-            var kuriri = kurirskaSluzbaUsers
+
+            // Filtriraj kurirske službe - isključi trenutnog korisnika ako je i on kurirska služba
+            var filtriranKuriri = kurirskaSluzbaUsers
+                .Where(u => u.Id != korisnik.Id) // Isključi trenutnog korisnika
                 .OrderBy(u => !string.IsNullOrEmpty(u.KurirskaSluzba) ? u.KurirskaSluzba : $"{u.Ime} {u.Prezime}")
                 .Select(u => new SelectListItem
                 {
@@ -117,13 +120,19 @@ namespace ooadepazar.Controllers
                     Text = !string.IsNullOrEmpty(u.KurirskaSluzba) ? u.KurirskaSluzba : $"{u.Ime} {u.Prezime}"
                 }).ToList();
 
+            // Provjeri da li ima dostupnih kurirskih službi
+            if (!filtriranKuriri.Any())
+            {
+                TempData["ErrorMessage"] = "Trenutno nema dostupnih kurirskih službi za dostavu.";
+                return RedirectToAction("Details", "Artikal", new { id = id });
+            }
+
             ViewBag.ArtikalId = id;
             ViewBag.Korisnik = korisnik;
-            ViewBag.KurirskeSluzbe = kuriri;
+            ViewBag.KurirskeSluzbe = filtriranKuriri;
 
             return View();
         }
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -140,6 +149,21 @@ namespace ooadepazar.Controllers
 
             var kurirskaSluzba = await _context.Users.FirstOrDefaultAsync(u => u.Id == KurirskaSluzbaId);
             if (kurirskaSluzba == null) return BadRequest("Morate izabrati kurirsku službu.");
+
+            // Dodatna provjera da korisnik ne može odabrati sebe kao kurirsku službu
+            if (KurirskaSluzbaId == korisnik.Id)
+            {
+                TempData["ErrorMessage"] = "Ne možete odabrati sebe kao kurirsku službu.";
+                return RedirectToAction("Create", new { id = id });
+            }
+
+            // Provjeri da li je korisnik sa KurirskaSluzbaId stvarno kurirska služba
+            var isKurirskaSluzba = await _userManager.IsInRoleAsync(kurirskaSluzba, "KurirskaSluzba");
+            if (!isKurirskaSluzba)
+            {
+                TempData["ErrorMessage"] = "Odabrani korisnik nije kurirska služba.";
+                return RedirectToAction("Create", new { id = id });
+            }
 
             var narudzba = new Narudzba
             {
@@ -170,6 +194,7 @@ namespace ooadepazar.Controllers
 
             await _context.SaveChangesAsync();
 
+            TempData["SuccessMessage"] = "Narudžba je uspješno kreirana!";
             return RedirectToAction("Index", "Home");
         }
 
