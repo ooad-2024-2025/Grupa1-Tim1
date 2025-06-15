@@ -46,9 +46,9 @@
                     @if (user.Roles == null || !user.Roles.Contains("Admin"))
                     {
                         <form method="post" asp-action="DeleteUser" asp-route-userId="@user.UserId" class="d-inline"
-                              onsubmit="return confirm('Da li ste sigurni da ûelite obrisati korisnika @user.Email? Ova akcija se ne moûe opozvati.');">
+                              onsubmit="return confirm('Da li ste sigurni da ≈æelite obrisati korisnika @user.Email? Ova akcija se ne mo≈æe opozvati.');">
                             @Html.AntiForgeryToken()
-                            <button type="submit" class="btn btn-danger btn-sm">Obriöi nalog</button>
+                            <button type="submit" class="btn btn-danger btn-sm">Obri≈°i nalog</button>
                         </form>
                     }
                 </td>
