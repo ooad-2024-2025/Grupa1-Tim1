@@ -252,7 +252,7 @@ namespace ooadepazar.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "KurirskaSluzba, Admin")]
-        public async Task<IActionResult> PromijeniStatus(int id, string noviStatus)
+        public async Task<IActionResult> PromijeniStatus(int id, string noviStatus, string returnUrl = null)
         {
             var narudzba = await _context.Narudzba
                 .Include(n => n.Korisnik)
@@ -285,7 +285,12 @@ namespace ooadepazar.Controllers
                     _ => $"Status vaše narudžbe je promijenjen u: {status}."
                 };
                 await _mailService.SendEmailAsync(narudzba.Korisnik.EmailAdresa, message);
+            }
 
+            // Ako je proslijeđen returnUrl, preusmjeri tamo, inače na Index
+            if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
             }
 
             return RedirectToAction(nameof(Index));
