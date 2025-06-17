@@ -77,8 +77,9 @@ namespace ooadepazar.Areas.Identity.Pages.Account.Manage
                 PhoneNumber = phoneNumber
             };
         }
-        
+
         public IList<Artikal> Artikli { get; set; } = new List<Artikal>();
+        public Dictionary<int, int> Narudzbe { get; set; } = new Dictionary<int, int>();
 
         public async Task<IActionResult> OnGetAsync()
         {
@@ -87,8 +88,24 @@ namespace ooadepazar.Areas.Identity.Pages.Account.Manage
                 return NotFound("User not found");
 
             Artikli = await _context.Artikal
+                .Include(a => a.Korisnik)
                 .Where(a => a.Korisnik.Id == user.Id)
                 .ToListAsync();
+
+            // --- Fetch narudžbe for ordered articles ---
+            var orderedArtikli = Artikli.Where(a => a.Narucen).Select(a => a.ID).ToList();
+            if (orderedArtikli.Any())
+            {
+                var narudzbeList = await _context.Narudzba
+                    .Where(n => orderedArtikli.Contains(n.Artikal.ID))
+                    .Select(n => new { ArtikalId = n.Artikal.ID, NarudzbaId = n.ID })
+                    .ToListAsync();
+
+                foreach (var narudzba in narudzbeList)
+                {
+                    Narudzbe[narudzba.ArtikalId] = narudzba.NarudzbaId;
+                }
+            }
 
             return Page();
         }
