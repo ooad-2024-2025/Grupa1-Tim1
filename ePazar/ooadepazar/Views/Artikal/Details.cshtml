@@ -129,7 +129,8 @@
     </div>
 
 
-    @if (Model.Korisnik != null) {
+    @if (Model.Korisnik != null)
+    {
         <div class="card mt-4 border-info">
             <div class="card-header bg-info text-white">
                 Informacije o korisniku
@@ -138,9 +139,16 @@
                 <dl class="row mb-0">
                     <dt class="col-sm-4">Korisničko ime</dt>
                     <dd class="col-sm-8">
-                        <a asp-controller="Korisnik" asp-action="Index" asp-route-id="@Model.Korisnik.Id">
-                            @Model.Korisnik.Ime @Model.Korisnik.Prezime
-                        </a>
+                        @if (User.Identity?.IsAuthenticated == true)
+                        {
+                            <a asp-controller="Korisnik" asp-action="Index" asp-route-id="@Model.Korisnik.Id">
+                                @Model.Korisnik.Ime @Model.Korisnik.Prezime
+                            </a>
+                        }
+                        else
+                        {
+                            <span>@Model.Korisnik.Ime @Model.Korisnik.Prezime</span>
+                        }
                     </dd>
                     <dt class="col-sm-4">Ime</dt>
                     <dd class="col-sm-8">@Model.Korisnik.Ime</dd>
