@@ -110,11 +110,29 @@ public class HomeController : Controller
                 break;
         }
 
-        // --- Execute Query and Return to View ---
-
-        // Convert to list and apply defensive null check for any potentially null items within the collection
+        // --- Execute Query and get articles ---
         var finalArtikli = await artikli.ToListAsync();
         finalArtikli = finalArtikli.Where(item => item != null).ToList();
+
+        // --- Fetch narudžbe for ordered articles ---
+        var narudzbe = new Dictionary<int, int>(); // artikalId -> narudzbaId
+
+        var orderedArtikli = finalArtikli.Where(a => a.Narucen).Select(a => a.ID).ToList();
+        if (orderedArtikli.Any())
+        {
+            var narudzbeList = await _context.Narudzba
+                .Where(n => orderedArtikli.Contains(n.Artikal.ID))
+                .Select(n => new { ArtikalId = n.Artikal.ID, NarudzbaId = n.ID })
+                .ToListAsync();
+
+            foreach (var narudzba in narudzbeList)
+            {
+                narudzbe[narudzba.ArtikalId] = narudzba.NarudzbaId;
+            }
+        }
+
+        // Pass narudžbe dictionary to the view
+        ViewBag.Narudzbe = narudzbe;
 
         return View(finalArtikli); // Pass the filtered and sorted articles to the view
     }

@@ -73,7 +73,7 @@
             filter: grayscale(30%); /* Blago siva slika za naručene */
         }
 
-        .card-ordered .card-title a {
+        .card-ordered .card-title {
             color: #6c757d !important; /* Siva boja za naslov naručenih */
         }
 
@@ -142,6 +142,13 @@
             background-color: #007bff;
             border-color: #007bff;
         }
+
+    /* Naslov bez linka za naručene artikle */
+    .title-no-link {
+        color: #6c757d !important;
+        text-decoration: none !important;
+        cursor: default;
+    }
 </style>
 
 <div class="container py-4">
@@ -174,7 +181,7 @@
                     <label for="sortBy" class="form-label visually-hidden">Sortiraj po</label>
                     <select class="form-select" id="sortBy" name="sortBy">
                         @* Ovdje se generiraju opcije za sortiranje. Provjeri kako su postavljene u tvom kontroleru. *
-                         * Ako su već prevedene u kontroleru (npr. "Najnovije", "Cijena: od najniže"), onda je ovdje OK.
+                         * Ako su već prevedene u kontroluru (npr. "Najnovije", "Cijena: od najniže"), onda je ovdje OK.
                          * Ako nisu, trebat će ih prevesti u kontroleru prilikom punjenja ViewBag.SortOptions. *@
                         <option value="">Sortiraj po</option> @* DODANO: Placeholder za sortiranje *@
                         <option value="date_desc" selected="@("date_desc" == ViewBag.CurrentSortBy)">Najnovije</option> @* Prevedeno i detaljnije *@
@@ -224,9 +231,16 @@
 
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title mb-2">
-                                <a asp-controller="Artikal" asp-action="Details" asp-route-id="@item.ID" class="text-decoration-none text-primary">
-                                    @item.Naziv
-                                </a>
+                                @if (item.Narucen)
+                                {
+                                    <span class="title-no-link">@item.Naziv</span>
+                                }
+                                else
+                                {
+                                    <a asp-controller="Artikal" asp-action="Details" asp-route-id="@item.ID" class="text-decoration-none text-primary">
+                                        @item.Naziv
+                                    </a>
+                                }
                             </h5>
                             <p class="card-text text-muted mb-1">
                                 <small><i class="bi bi-tag me-1"></i> Kategorija: @item.Kategorija.ToString().Replace("_", " ")</small>
@@ -251,7 +265,7 @@
                         <div class="card-footer d-flex justify-content-between align-items-center">
                             <small class="text-muted"><i class="bi bi-calendar me-1"></i> @item.DatumObjave.ToShortDateString()</small>
                             @if (item.Korisnik != null)
-                            {                              
+                            {
                                 @if (User.Identity?.IsAuthenticated == true)
                                 {
                                     <small class="text-info">
@@ -270,11 +284,25 @@
                             {
                                 <small class="text-info"><i class="bi bi-person-slash me-1"></i> N/A</small> @* "N/A" se obično ne prevodi, univerzalno je *@
                             }
+
+                            @{
+                                var narudzbe = ViewBag.Narudzbe as Dictionary<int, int>;
+                            }
+
                             @if (item.Narucen)
                             {
-                                <span class="btn btn-sm btn-outline-secondary disabled">
-                                    <i class="bi bi-check-circle"></i> Naručeno
-                                </span>
+                                @if (narudzbe != null && narudzbe.ContainsKey(item.ID))
+                                {
+                                    <a asp-controller="Narudzba" asp-action="Details" asp-route-id="@narudzbe[item.ID]" class="btn btn-sm btn-outline-warning">
+                                        <i class="bi bi-receipt"></i> Detalji narudžbe
+                                    </a>
+                                }
+                                else
+                                {
+                                    <span class="btn btn-sm btn-outline-secondary disabled">
+                                        <i class="bi bi-receipt"></i> Narudžba nije pronađena
+                                    </span>
+                                }
                             }
                             else
                             {
