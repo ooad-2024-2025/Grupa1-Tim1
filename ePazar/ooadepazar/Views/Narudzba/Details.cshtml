@@ -102,6 +102,32 @@
                         <dd class="col-sm-9">@artikal.Opis</dd>
                         <dt class="col-sm-3">Cijena</dt>
                         <dd class="col-sm-9">@artikal.Cijena KM</dd>
+                        @if (artikal.Korisnik != null)
+                        {
+                            <dt class="col-sm-3">Objavio</dt>
+                            <dd class="col-sm-9">
+                                <a asp-controller="Korisnik" asp-action="Index" asp-route-id="@artikal.Korisnik.Id" class="text-decoration-none">
+                                    <i class="bi bi-person"></i> @artikal.Korisnik.Ime @artikal.Korisnik.Prezime
+                                </a>
+                                @if (!string.IsNullOrEmpty(artikal.Korisnik.EmailAdresa))
+                                {
+                                    <br>
+
+                                    <small class="text-muted"><i class="bi bi-envelope"></i> @artikal.Korisnik.EmailAdresa</small>
+                                }
+                                @if (!string.IsNullOrEmpty(artikal.Korisnik.BrojTelefona))
+                                {
+                                    <br>
+
+                                    <small class="text-muted"><i class="bi bi-telephone"></i> @artikal.Korisnik.BrojTelefona</small>
+                                }
+                            </dd>
+                        }
+                        else
+                        {
+                            <dt class="col-sm-3">Objavio</dt>
+                            <dd class="col-sm-9"><span class="text-muted fst-italic">Nepoznat korisnik</span></dd>
+                        }
                     </dl>
                 </div>
             </div>

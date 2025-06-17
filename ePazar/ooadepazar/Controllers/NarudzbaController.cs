@@ -85,6 +85,7 @@ namespace ooadepazar.Controllers
 
             var narudzba = await _context.Narudzba
                 .Include(n => n.Artikal)
+                    .ThenInclude(a => a.Korisnik)
                 .Include(n => n.Korisnik)
                 .Include(n => n.KurirskaSluzba)
                 .FirstOrDefaultAsync(m => m.ID == id);
