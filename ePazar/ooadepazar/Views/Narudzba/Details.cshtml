@@ -6,7 +6,7 @@
 }
 
 <!-- Order Information -->
-<div class="card mb-4 border-primary shadow-sm">
+<div class="card mb-4 mt-4 border-primary shadow-sm">
     <div class="card-header bg-primary text-white">
         <h5 class="mb-0">Informacije o narudžbi</h5>
     </div>
@@ -17,7 +17,8 @@
             <dt class="col-sm-4">Status</dt>
             <dd class="col-sm-8">
                 @{
-                    string statusDisplay = Model.Status switch {
+                    string statusDisplay = Model.Status switch
+                    {
                         ooadepazar.Models.Status.Kreiran => "Kreiran",
                         ooadepazar.Models.Status.UObradi => "U obradi",
                         ooadepazar.Models.Status.Dostavljen => "Dostavljen",
@@ -33,10 +34,12 @@
             </dd>
             <dt class="col-sm-4">Datum obrade</dt>
             <dd class="col-sm-8">
-                @if (Model.DatumObrade.HasValue) {
+                @if (Model.DatumObrade.HasValue)
+                {
                     @Model.DatumObrade.Value.ToString("g")
                 }
-                else {
+                else
+                {
                     <span class="text-muted fst-italic">Nije obrađeno</span>
                 }
             </dd>
@@ -44,8 +47,41 @@
     </div>
 </div>
 
+<!-- Courier Service Information -->
+@if (Model.KurirskaSluzba != null)
+{
+    <div class="card mb-4 mt-4 border-success">
+        <div class="card-header bg-success text-white">
+            <h6 class="mb-0">Informacije o kurirskoj službi</h6>
+        </div>
+        <div class="card-body">
+            <dl class="row mb-0">
+                <dt class="col-sm-4">Kurirska služba</dt>
+                <dd class="col-sm-8">
+                    @if (!string.IsNullOrEmpty(Model.KurirskaSluzba.KurirskaSluzba))
+                    {
+                        @Model.KurirskaSluzba.KurirskaSluzba
+                    }
+                    else
+                    {
+                        @($"{Model.KurirskaSluzba.Ime} {Model.KurirskaSluzba.Prezime}")
+                    }
+                </dd>
+                <dt class="col-sm-4">Kontakt email</dt>
+                <dd class="col-sm-8">@Model.KurirskaSluzba.EmailAdresa</dd>
+                @if (!string.IsNullOrEmpty(Model.KurirskaSluzba.BrojTelefona))
+                {
+                    <dt class="col-sm-4">Broj telefona</dt>
+                    <dd class="col-sm-8">@Model.KurirskaSluzba.BrojTelefona</dd>
+                }
+            </dl>
+        </div>
+    </div>
+}
+
 <!-- Article Information -->
-@if (artikal != null) {
+@if (artikal != null)
+{
     <div class="card mb-4 border-secondary">
         <div class="card-header bg-light text-secondary">
             <h6 class="mb-0">Informacije o artiklu</h6>
@@ -73,7 +109,8 @@
     </div>
 }
 
-@if (Model.Korisnik != null) {
+@if (Model.Korisnik != null)
+{
     <div class="card mt-4 border-info">
         <div class="card-header bg-info text-white">
             Informacije o naručiocu
