@@ -25,6 +25,11 @@
 
     // Generiši ispravnu URL za vraćanje na ovu stranicu
     var currentPageUrl = Url.Page("Kurirska", new { area = "Identity" });
+
+    // Dobijamo naziv kurirske službe
+    var nazivKurirske = !string.IsNullOrEmpty(Model.NazivKurirskeSluzbe)
+        ? Model.NazivKurirskeSluzbe
+        : $"{Model.ImeKorsinika} {Model.PrezimeKorisnika}";
 }
 
 <style>
@@ -79,7 +84,34 @@
         overflow: hidden;
         text-overflow: ellipsis;
     }
+
+    .kurirska-header {
+        background: linear-gradient(135deg, #007bff, #0056b3);
+        color: white;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 12px rgba(0,123,255,0.15);
+    }
+
+        .kurirska-header h2 {
+            margin: 0;
+            font-weight: 600;
+            font-size: 1.8rem;
+        }
+
+        .kurirska-header .subtitle {
+            margin: 0.5rem 0 0 0;
+            opacity: 0.9;
+            font-size: 1rem;
+        }
 </style>
+
+<!-- Header sa nazivom kurirske službe -->
+<div class="kurirska-header">
+    <h2><i class="bi bi-truck me-2"></i>@nazivKurirske</h2>
+    <p class="subtitle">Upravljanje narudžbama kurirske službe</p>
+</div>
 
 @foreach (var sec in sections)
 {

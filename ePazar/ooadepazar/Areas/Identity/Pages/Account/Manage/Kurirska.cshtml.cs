@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using ooadepazar.Data;
 using ooadepazar.Models;
 
-[Authorize(Roles = "Kurirska_Sluzba, Admin")]
+[Authorize(Roles = "Kurirska_Sluzba, KurirskaSluzba, Admin")]
 public class KurirskaModel : PageModel
 {
     private readonly UserManager<ApplicationUser> _userManager;
@@ -19,13 +19,20 @@ public class KurirskaModel : PageModel
     }
 
     public List<Narudzba> Orders { get; set; } = new List<Narudzba>();
+    public string NazivKurirskeSluzbe { get; set; } = string.Empty;
+    public string ImeKorsinika { get; set; } = string.Empty;
+    public string PrezimeKorisnika { get; set; } = string.Empty;
 
     public async Task OnGetAsync()
     {
         var currentUser = await _userManager.GetUserAsync(User);
-
         if (currentUser != null)
         {
+            // Postavi naziv kurirske službe ili ime i prezime korisnika
+            NazivKurirskeSluzbe = currentUser.KurirskaSluzba ?? string.Empty;
+            ImeKorsinika = currentUser.Ime ?? string.Empty;
+            PrezimeKorisnika = currentUser.Prezime ?? string.Empty;
+
             // Dohvati sve narudžbe dodijeljene trenutnoj kurirskoj službi
             Orders = await _context.Narudzba
                 .Include(n => n.Artikal) // učitaj povezani artikal
@@ -41,7 +48,6 @@ public class KurirskaModel : PageModel
     public async Task<IActionResult> OnPostOznaciKaoDostavljenaAsync(int id)
     {
         var currentUser = await _userManager.GetUserAsync(User);
-
         if (currentUser == null)
         {
             return RedirectToPage("/Account/Login");
@@ -59,9 +65,7 @@ public class KurirskaModel : PageModel
             {
                 narudzba.Status = Status.Dostavljen;
                 narudzba.DatumObrade = DateTime.Now; // Ažuriraj datum obrade
-
                 await _context.SaveChangesAsync();
-
                 TempData["SuccessMessage"] = $"Narudžba #{narudzba.ID} je uspješno označena kao dostavljena.";
             }
             else
